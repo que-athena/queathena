@@ -1,0 +1,777 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Que Athena — Experience Growth Strategist</title>
+<meta name="description" content="I help hospitality and experience brands turn every guest touchpoint into growth. Request your Experience Lens™">
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;1,300;1,400&family=Inter:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --peach: #e6decd;
+    --light-tan: #f2f1ee;
+    --tan: #e4e2dd;
+    --charcoal: #212118;
+    --sage: #b6beaa;
+    --sage-dark: #8e9882;
+    --charcoal-light: #4a4a44;
+    --charcoal-faint: rgba(33,33,24,0.12);
+  }
+
+  *, *::before, *::after {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+  }
+
+  html {
+    scroll-behavior: smooth;
+  }
+
+  body {
+    background-color: var(--peach);
+    color: var(--charcoal);
+    font-family: 'Inter', sans-serif;
+    font-weight: 300;
+    line-height: 1.6;
+    min-height: 100vh;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  /* ── HEADER ── */
+  header {
+    padding: 40px 64px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: 1px solid var(--charcoal-faint);
+  }
+
+  .wordmark {
+    font-family: 'Inter', sans-serif;
+    font-weight: 400;
+    font-size: 13px;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--charcoal);
+  }
+
+  .header-tag {
+    font-family: 'Inter', sans-serif;
+    font-size: 11px;
+    font-weight: 300;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: var(--charcoal-light);
+  }
+
+  /* ── HERO ── */
+  .hero {
+    min-height: 80vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding: 80px 64px 60px;
+    max-width: 1100px;
+    margin: 0 auto;
+  }
+
+  .hero-eyebrow {
+    font-family: 'Inter', sans-serif;
+    font-size: 11px;
+    font-weight: 400;
+    letter-spacing: 0.25em;
+    text-transform: uppercase;
+    color: var(--sage-dark);
+    margin-bottom: 32px;
+  }
+
+  .hero-title {
+    font-family: 'Cormorant Garamond', serif;
+    font-weight: 300;
+    font-size: clamp(48px, 7vw, 96px);
+    line-height: 1.0;
+    color: var(--charcoal);
+    margin-bottom: 48px;
+    max-width: 800px;
+    letter-spacing: -0.01em;
+  }
+
+  .hero-title em {
+    font-style: italic;
+    color: var(--sage-dark);
+  }
+
+  .location-ticker {
+    font-family: 'Cormorant Garamond', serif;
+    font-style: italic;
+    font-size: 17px;
+    color: var(--charcoal-light);
+    margin-bottom: 48px;
+    height: 24px;
+    overflow: hidden;
+  }
+
+  .location-ticker span {
+    display: block;
+    animation: ticker 12s infinite;
+    opacity: 0;
+  }
+
+  @keyframes ticker {
+    0%   { opacity: 0; transform: translateY(4px); }
+    8%   { opacity: 1; transform: translateY(0); }
+    25%  { opacity: 1; transform: translateY(0); }
+    33%  { opacity: 0; transform: translateY(-4px); }
+    100% { opacity: 0; }
+  }
+
+  .location-ticker span:nth-child(1) { animation-delay: 0s; }
+  .location-ticker span:nth-child(2) { animation-delay: 3s; }
+  .location-ticker span:nth-child(3) { animation-delay: 6s; }
+  .location-ticker span:nth-child(4) { animation-delay: 9s; }
+
+  .hero-body {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 22px;
+    font-weight: 300;
+    line-height: 1.65;
+    color: var(--charcoal-light);
+    max-width: 580px;
+    margin-bottom: 20px;
+  }
+
+  .hero-rule {
+    width: 48px;
+    height: 1px;
+    background: var(--sage);
+    margin: 36px 0;
+  }
+
+  /* ── MANIFESTO STRIP ── */
+  .manifesto {
+    background: var(--charcoal);
+    padding: 64px;
+    margin: 0;
+  }
+
+  .manifesto-inner {
+    max-width: 1100px;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 64px;
+    align-items: center;
+  }
+
+  .manifesto-quote {
+    font-family: 'Cormorant Garamond', serif;
+    font-style: italic;
+    font-weight: 300;
+    font-size: clamp(26px, 3.5vw, 40px);
+    line-height: 1.3;
+    color: var(--peach);
+  }
+
+  .manifesto-quote strong {
+    font-style: normal;
+    font-weight: 400;
+    color: var(--sage);
+  }
+
+  .manifesto-body {
+    font-family: 'Inter', sans-serif;
+    font-size: 14px;
+    font-weight: 300;
+    line-height: 1.8;
+    color: rgba(230,222,205,0.65);
+  }
+
+  .manifesto-body p + p {
+    margin-top: 16px;
+  }
+
+  /* ── WHAT I DO ── */
+  .services {
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 96px 64px;
+  }
+
+  .services-eyebrow {
+    font-size: 11px;
+    letter-spacing: 0.25em;
+    text-transform: uppercase;
+    color: var(--sage-dark);
+    margin-bottom: 48px;
+    font-weight: 400;
+  }
+
+  .services-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1px;
+    background: var(--tan);
+    border: 1px solid var(--tan);
+    margin-bottom: 64px;
+  }
+
+  .service-item {
+    background: var(--peach);
+    padding: 36px 32px;
+  }
+
+  .service-label {
+    font-size: 10px;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--sage-dark);
+    margin-bottom: 14px;
+    font-weight: 400;
+  }
+
+  .service-name {
+    font-family: 'Cormorant Garamond', serif;
+    font-weight: 400;
+    font-size: 20px;
+    color: var(--charcoal);
+    margin-bottom: 10px;
+  }
+
+  .service-desc {
+    font-size: 13px;
+    line-height: 1.7;
+    color: var(--charcoal-light);
+    font-weight: 300;
+  }
+
+  /* ── SNAPSHOT SECTION ── */
+  .snapshot-section {
+    background: var(--light-tan);
+    border-top: 1px solid var(--tan);
+    border-bottom: 1px solid var(--tan);
+  }
+
+  .snapshot-inner {
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 96px 64px;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 80px;
+    align-items: start;
+  }
+
+  .snapshot-left h2 {
+    font-family: 'Cormorant Garamond', serif;
+    font-weight: 300;
+    font-size: clamp(36px, 4vw, 54px);
+    line-height: 1.1;
+    color: var(--charcoal);
+    margin-bottom: 28px;
+  }
+
+  .snapshot-left h2 em {
+    font-style: italic;
+    color: var(--sage-dark);
+  }
+
+  .snapshot-left p {
+    font-size: 15px;
+    line-height: 1.75;
+    color: var(--charcoal-light);
+    margin-bottom: 16px;
+    font-weight: 300;
+  }
+
+  .snapshot-what {
+    margin-top: 36px;
+    border-top: 1px solid var(--tan);
+    padding-top: 28px;
+  }
+
+  .snapshot-what-label {
+    font-size: 10px;
+    letter-spacing: 0.22em;
+    text-transform: uppercase;
+    color: var(--sage-dark);
+    margin-bottom: 16px;
+    font-weight: 400;
+  }
+
+  .snapshot-item {
+    display: flex;
+    gap: 14px;
+    margin-bottom: 14px;
+    align-items: flex-start;
+  }
+
+  .snapshot-dot {
+    width: 5px;
+    height: 5px;
+    border-radius: 50%;
+    background: var(--sage);
+    flex-shrink: 0;
+    margin-top: 7px;
+  }
+
+  .snapshot-item-text {
+    font-size: 14px;
+    line-height: 1.65;
+    color: var(--charcoal-light);
+    font-weight: 300;
+  }
+
+  /* ── FORM ── */
+  .form-container {
+    background: var(--peach);
+    border: 1px solid var(--tan);
+    padding: 40px;
+  }
+
+  .form-title {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 22px;
+    font-weight: 400;
+    color: var(--charcoal);
+    margin-bottom: 8px;
+  }
+
+  .form-subtitle {
+    font-size: 13px;
+    color: var(--charcoal-light);
+    margin-bottom: 32px;
+    line-height: 1.6;
+    font-weight: 300;
+  }
+
+  .field {
+    margin-bottom: 20px;
+  }
+
+  .field label {
+    display: block;
+    font-size: 10px;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: var(--charcoal-light);
+    margin-bottom: 8px;
+    font-weight: 400;
+  }
+
+  .field input,
+  .field select,
+  .field textarea {
+    width: 100%;
+    background: var(--light-tan);
+    border: 1px solid var(--tan);
+    border-radius: 0;
+    padding: 14px 16px;
+    font-family: 'Inter', sans-serif;
+    font-size: 14px;
+    font-weight: 300;
+    color: var(--charcoal);
+    outline: none;
+    transition: border-color 0.2s;
+    appearance: none;
+    -webkit-appearance: none;
+  }
+
+  .field input::placeholder,
+  .field textarea::placeholder {
+    color: rgba(33,33,24,0.35);
+  }
+
+  .field input:focus,
+  .field select:focus,
+  .field textarea:focus {
+    border-color: var(--sage-dark);
+  }
+
+  .field textarea {
+    resize: vertical;
+    min-height: 100px;
+  }
+
+  .field select {
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='8' viewBox='0 0 12 8'%3E%3Cpath d='M1 1l5 5 5-5' stroke='%238e9882' stroke-width='1.5' fill='none'/%3E%3C/svg%3E");
+    background-repeat: no-repeat;
+    background-position: right 16px center;
+    padding-right: 40px;
+    cursor: pointer;
+  }
+
+  .submit-btn {
+    width: 100%;
+    background: var(--charcoal);
+    color: var(--peach);
+    border: none;
+    padding: 18px 32px;
+    font-family: 'Inter', sans-serif;
+    font-size: 12px;
+    font-weight: 400;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    cursor: pointer;
+    transition: background 0.2s, color 0.2s;
+    margin-top: 8px;
+  }
+
+  .submit-btn:hover {
+    background: var(--sage-dark);
+    color: var(--charcoal);
+  }
+
+  .form-note {
+    font-size: 11px;
+    color: var(--charcoal-light);
+    margin-top: 14px;
+    line-height: 1.6;
+    opacity: 0.7;
+    font-weight: 300;
+  }
+
+  /* Success state */
+  .success-state {
+    display: none;
+    text-align: center;
+    padding: 40px 20px;
+  }
+
+  .success-state.visible {
+    display: block;
+  }
+
+  .success-icon {
+    width: 40px;
+    height: 40px;
+    border: 1px solid var(--sage);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0 auto 20px;
+  }
+
+  .success-title {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 26px;
+    font-weight: 300;
+    color: var(--charcoal);
+    margin-bottom: 12px;
+  }
+
+  .success-body {
+    font-size: 14px;
+    color: var(--charcoal-light);
+    line-height: 1.7;
+    font-weight: 300;
+  }
+
+  /* ── CLOSING ── */
+  .closing {
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 96px 64px;
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+    border-top: 1px solid var(--tan);
+  }
+
+  .closing-line {
+    font-family: 'Cormorant Garamond', serif;
+    font-style: italic;
+    font-size: 28px;
+    font-weight: 300;
+    color: var(--charcoal);
+    max-width: 420px;
+    line-height: 1.3;
+  }
+
+  .closing-contact {
+    text-align: right;
+    font-size: 12px;
+    letter-spacing: 0.1em;
+    color: var(--charcoal-light);
+    line-height: 2;
+    font-weight: 300;
+  }
+
+  .closing-contact a {
+    color: var(--charcoal-light);
+    text-decoration: none;
+    border-bottom: 1px solid var(--tan);
+    transition: border-color 0.2s;
+  }
+
+  .closing-contact a:hover {
+    border-color: var(--sage-dark);
+    color: var(--charcoal);
+  }
+
+  /* ── FOOTER ── */
+  footer {
+    border-top: 1px solid var(--charcoal-faint);
+    padding: 28px 64px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  .footer-copy {
+    font-size: 11px;
+    color: var(--charcoal-light);
+    opacity: 0.5;
+    letter-spacing: 0.05em;
+    font-weight: 300;
+  }
+
+  .footer-brands {
+    font-size: 11px;
+    color: var(--charcoal-light);
+    opacity: 0.5;
+    letter-spacing: 0.08em;
+    font-weight: 300;
+  }
+
+  /* ── RESPONSIVE ── */
+  @media (max-width: 768px) {
+    header { padding: 28px 24px; }
+    .hero { padding: 56px 24px 40px; min-height: 60vh; }
+    .manifesto { padding: 48px 24px; }
+    .manifesto-inner { grid-template-columns: 1fr; gap: 32px; }
+    .services { padding: 64px 24px; }
+    .services-grid { grid-template-columns: 1fr; }
+    .snapshot-inner { grid-template-columns: 1fr; gap: 48px; padding: 64px 24px; }
+    .closing { padding: 64px 24px; flex-direction: column; gap: 32px; align-items: flex-start; }
+    .closing-contact { text-align: left; }
+    footer { padding: 24px; flex-direction: column; gap: 8px; text-align: center; }
+  }
+</style>
+</head>
+<body>
+
+<!-- HEADER -->
+<header>
+  <div class="wordmark">Que Athena</div>
+  <div class="header-tag">Experience Growth Strategist</div>
+</header>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-eyebrow">On location · Worldwide</div>
+  <h1 class="hero-title">
+    The way people<br>feel is your<br><em>strategy.</em>
+  </h1>
+
+  <div class="location-ticker">
+    <span>Currently: Tulum, Mexico</span>
+    <span>Recently: Oaxaca · Marrakech · Costa Rica</span>
+    <span>Working with experience brands around the world</span>
+    <span>Boutique hotels · Eco-lodges · Luxury retreats</span>
+  </div>
+
+  <div class="hero-rule"></div>
+
+  <p class="hero-body">
+    I help hospitality and experience brands turn every guest touchpoint into growth — through brand strategy, guest experience design, content architecture, AI, and creator partnerships.
+  </p>
+</section>
+
+<!-- MANIFESTO -->
+<div class="manifesto">
+  <div class="manifesto-inner">
+    <div class="manifesto-quote">
+      Beautiful content doesn't build unforgettable brands.<br>
+      <strong>Unforgettable brands create beautiful content naturally.</strong>
+    </div>
+    <div class="manifesto-body">
+      <p>A hotel flies in twenty creators. The content is stunning. Three months later, nothing's really changed. CTR ticks up. Bookings don't return. Reviews don't improve.</p>
+      <p>The story was never the problem. The stay was.</p>
+      <p>I built a six-figure business without posting content, running ads, or chasing press. Clients created the content for me. Press found me first. That's what happens when the experience itself is the strategy.</p>
+    </div>
+  </div>
+</div>
+
+<!-- SERVICES -->
+<section class="services">
+  <div class="services-eyebrow">What I do</div>
+  <div class="services-grid">
+    <div class="service-item">
+      <div class="service-label">01</div>
+      <div class="service-name">Brand Strategy</div>
+      <div class="service-desc">Positioning, messaging, and the narrative thread that holds every touchpoint together — across properties, markets, and channels.</div>
+    </div>
+    <div class="service-item">
+      <div class="service-label">02</div>
+      <div class="service-name">Guest Experience Design</div>
+      <div class="service-desc">On-location audits of the full guest journey — from booking flow to checkout — finding where the story breaks and where it already carries.</div>
+    </div>
+    <div class="service-item">
+      <div class="service-label">03</div>
+      <div class="service-name">Content Architecture</div>
+      <div class="service-desc">Systems, not campaigns. A content ecosystem built so every piece of communication reinforces the same brand promise.</div>
+    </div>
+    <div class="service-item">
+      <div class="service-label">04</div>
+      <div class="service-name">Creator ROI Strategy</div>
+      <div class="service-desc">Deciding whether, how, and with whom to work — so creator partnerships produce measurable results instead of beautiful content that doesn't convert.</div>
+    </div>
+    <div class="service-item">
+      <div class="service-label">05</div>
+      <div class="service-name">AI Integration</div>
+      <div class="service-desc">Guest communication, content operations, review management, and team workflows — built smarter with AI that doesn't replace the experience.</div>
+    </div>
+    <div class="service-item">
+      <div class="service-label">06</div>
+      <div class="service-name">Experience Lens™</div>
+      <div class="service-desc">A personalized diagnostic of your brand experience, content, and guest journey — three opportunities I noticed, one quick win. Where every engagement begins.</div>
+    </div>
+  </div>
+</section>
+
+<!-- GROWTH SNAPSHOT FORM -->
+<section class="snapshot-section">
+  <div class="snapshot-inner">
+    <div class="snapshot-left">
+      <h2>Request your<br><em>Experience Lens™</em></h2>
+      <p>I work with a small number of brands at a time. Before any conversation about working together, I prepare a personalized Experience Lens™ — a diagnostic read on your brand experience, guest journey, and content ecosystem.</p>
+      <p>It takes me 20–30 minutes. It costs you nothing. And it gives us both a real starting point instead of a general conversation.</p>
+
+      <div class="snapshot-what">
+        <div class="snapshot-what-label">What you receive</div>
+        <div class="snapshot-item">
+          <div class="snapshot-dot"></div>
+          <div class="snapshot-item-text">Three things you're already doing well — specific, not generic</div>
+        </div>
+        <div class="snapshot-item">
+          <div class="snapshot-dot"></div>
+          <div class="snapshot-item-text">Three strategic opportunities I noticed in your brand experience</div>
+        </div>
+        <div class="snapshot-item">
+          <div class="snapshot-dot"></div>
+          <div class="snapshot-item-text">One quick win you could implement tomorrow</div>
+        </div>
+        <div class="snapshot-item">
+          <div class="snapshot-dot"></div>
+          <div class="snapshot-item-text">A clear picture of where a strategy engagement would begin</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="form-container" id="form-wrap">
+      <div id="form-body">
+        <div class="form-title">Request an Experience Lens™</div>
+        <div class="form-subtitle">I review every request personally. You'll hear from me within 3 business days.</div>
+
+        <div class="field">
+          <label for="name">Your name</label>
+          <input type="text" id="name" placeholder="Full name" autocomplete="name">
+        </div>
+
+        <div class="field">
+          <label for="role">Your role</label>
+          <input type="text" id="role" placeholder="Marketing Director, Founder, GM…">
+        </div>
+
+        <div class="field">
+          <label for="email">Email address</label>
+          <input type="email" id="email" placeholder="you@yourbrand.com" autocomplete="email">
+        </div>
+
+        <div class="field">
+          <label for="brand">Brand / property name</label>
+          <input type="text" id="brand" placeholder="Your hotel, retreat, or brand name">
+        </div>
+
+        <div class="field">
+          <label for="website">Website</label>
+          <input type="url" id="website" placeholder="https://yourbrand.com">
+        </div>
+
+        <div class="field">
+          <label for="category">Brand category</label>
+          <select id="category">
+            <option value="" disabled selected>Select one</option>
+            <option>Boutique Hotel</option>
+            <option>Luxury Villa / Vacation Rental</option>
+            <option>Eco-Lodge</option>
+            <option>Glamping Brand</option>
+            <option>Wellness Retreat</option>
+            <option>Luxury Tour Operator</option>
+            <option>Adventure Travel Brand</option>
+            <option>Destination Wedding Venue</option>
+            <option>Restaurant / Dining Experience</option>
+            <option>Other Experience Brand</option>
+          
+          </select>
+        </div>
+
+        <div class="field">
+          <label for="challenge">Your biggest current challenge</label>
+          <textarea id="challenge" placeholder="One sentence is enough. What's the problem you keep coming back to?"></textarea>
+        </div>
+
+        <button class="submit-btn" onclick="handleSubmit()">Request my Experience Lens™</button>
+        <div class="form-note">This is not a sales call request. You'll receive your Experience Lens™ via email — no meeting required unless you want one.</div>
+      </div>
+
+      <div class="success-state" id="success-state">
+        <div class="success-icon">
+          <svg width="16" height="12" viewBox="0 0 16 12" fill="none">
+            <path d="M1 6l4 4 9-9" stroke="#b6beaa" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+          </svg>
+        </div>
+        <div class="success-title">Received.</div>
+        <div class="success-body">I'll review your brand and send your Experience Lens™ within 3 business days. No meeting required — just something worth reading in your inbox.</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CLOSING -->
+<div class="closing">
+  <div class="closing-line">"I design brands people remember, recommend, and return to."</div>
+  <div class="closing-contact">
+    <a href="mailto:que@queathena.com">que@queathena.com</a><br>
+    queathena.com
+  </div>
+</div>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-copy">© 2026 Que Athena. All rights reserved.</div>
+  <div class="footer-brands">Experience Growth Strategy · On location worldwide</div>
+</footer>
+
+<script>
+  function handleSubmit() {
+    const name = document.getElementById('name').value.trim();
+    const email = document.getElementById('email').value.trim();
+    const brand = document.getElementById('brand').value.trim();
+    const website = document.getElementById('website').value.trim();
+    const challenge = document.getElementById('challenge').value.trim();
+
+    if (!name || !email || !brand) {
+      alert('Please fill in your name, email, and brand name to continue.');
+      return;
+    }
+
+    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    if (!emailRegex.test(email)) {
+      alert('Please enter a valid email address.');
+      return;
+    }
+
+    // Hide form, show success
+    document.getElementById('form-body').style.display = 'none';
+    document.getElementById('success-state').classList.add('visible');
+
+    // Scroll to success state
+    document.getElementById('form-wrap').scrollIntoView({ behavior: 'smooth', block: 'center' });
+  }
+</script>
+
+</body>
+</html>
