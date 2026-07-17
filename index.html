@@ -1,0 +1,364 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>One Thing — Que Athena</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Serif+Display:ital,wght@0,300;0,400;1,300;1,400&family=Jost:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --stone-deep: #3A3733;
+    --stone: #57534D;
+    --stone-light: #8A857D;
+    --dust: #B8B2A8;
+    --plaster: #DEDAD3;
+    --blood: #8C2822;
+    --bronze: #7A6242;
+    --brass: #9C845C;
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  html { scroll-behavior: smooth; }
+
+  body {
+    background: var(--stone);
+    color: var(--plaster);
+    font-family: 'Jost', sans-serif;
+    font-weight: 300;
+    line-height: 1.7;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  .wrap {
+    max-width: 620px;
+    margin: 0 auto;
+    padding: 0 28px;
+  }
+
+  /* ── MARK ── */
+  .mark {
+    padding: 56px 0 0;
+    font-size: 11px;
+    letter-spacing: 0.22em;
+    text-transform: uppercase;
+    color: var(--dust);
+  }
+
+  /* ── HERO ── */
+  .hero {
+    padding: 88px 0 96px;
+    border-bottom: 1px solid rgba(184,178,168,0.18);
+  }
+
+  .statement {
+    font-family: 'Noto Serif Display', serif;
+    font-weight: 300;
+    font-size: clamp(38px, 8vw, 62px);
+    line-height: 1.06;
+    color: var(--plaster);
+    letter-spacing: -0.01em;
+  }
+
+  .statement span {
+    display: block;
+  }
+
+  .statement .last {
+    color: var(--dust);
+  }
+
+  .lede {
+    margin-top: 40px;
+    font-size: 17px;
+    line-height: 1.75;
+    color: var(--dust);
+    max-width: 460px;
+  }
+
+  /* ── BODY ── */
+  section {
+    padding: 72px 0;
+    border-bottom: 1px solid rgba(184,178,168,0.18);
+  }
+
+  .eyebrow {
+    font-size: 10px;
+    letter-spacing: 0.26em;
+    text-transform: uppercase;
+    color: var(--brass);
+    margin-bottom: 26px;
+  }
+
+  p {
+    font-size: 16px;
+    line-height: 1.8;
+    color: var(--plaster);
+    margin-bottom: 20px;
+  }
+
+  p:last-child { margin-bottom: 0; }
+
+  p.quiet { color: var(--dust); }
+
+  /* ── IS / ISN'T ── */
+  .pair {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1px;
+    background: rgba(184,178,168,0.18);
+    border: 1px solid rgba(184,178,168,0.18);
+  }
+
+  .cell {
+    background: var(--stone);
+    padding: 30px 26px;
+  }
+
+  .cell h3 {
+    font-family: 'Jost', sans-serif;
+    font-weight: 400;
+    font-size: 10px;
+    letter-spacing: 0.24em;
+    text-transform: uppercase;
+    color: var(--brass);
+    margin-bottom: 18px;
+  }
+
+  .cell ul {
+    list-style: none;
+  }
+
+  .cell li {
+    font-size: 15px;
+    line-height: 1.55;
+    padding: 9px 0;
+    color: var(--plaster);
+  }
+
+  .cell.no li { color: var(--stone-light); }
+
+  /* ── TERMS ── */
+  .terms {
+    list-style: none;
+  }
+
+  .terms li {
+    display: flex;
+    gap: 22px;
+    padding: 16px 0;
+    border-bottom: 1px solid rgba(184,178,168,0.12);
+    font-size: 15px;
+    line-height: 1.6;
+  }
+
+  .terms li:last-child { border-bottom: none; }
+
+  .terms .k {
+    font-size: 10px;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--bronze);
+    flex: 0 0 84px;
+    padding-top: 4px;
+  }
+
+  .terms .v { color: var(--plaster); }
+
+  /* ── THE ONE RED THING ── */
+  .line {
+    background: var(--dust);
+    padding: 68px 52px;
+    margin: 72px 0;
+    text-align: center;
+  }
+
+  .line blockquote {
+    font-family: 'Noto Serif Display', serif;
+    font-style: italic;
+    font-weight: 300;
+    font-size: clamp(23px, 4.2vw, 32px);
+    line-height: 1.38;
+    color: var(--blood);
+    max-width: 540px;
+    margin: 0 auto;
+  }
+
+  .line blockquote + blockquote {
+    margin-top: 26px;
+    font-size: clamp(19px, 3.2vw, 24px);
+    color: var(--blood);
+  }
+
+  /* ── BOOK ── */
+  .book {
+    padding: 80px 0 96px;
+    border-bottom: none;
+  }
+
+  .price {
+    font-family: 'Noto Serif Display', serif;
+    font-size: 54px;
+    font-weight: 300;
+    color: var(--plaster);
+    line-height: 1;
+  }
+
+  .price small {
+    font-family: 'Jost', sans-serif;
+    font-size: 12px;
+    font-weight: 300;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--dust);
+    display: block;
+    margin-top: 16px;
+  }
+
+  .cta {
+    display: inline-block;
+    margin-top: 40px;
+    padding: 19px 44px;
+    background: var(--plaster);
+    color: var(--stone-deep);
+    font-family: 'Jost', sans-serif;
+    font-size: 12px;
+    font-weight: 500;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    text-decoration: none;
+    transition: background 0.25s ease, color 0.25s ease;
+  }
+
+  .cta:hover, .cta:focus-visible {
+    background: var(--blood);
+    color: var(--plaster);
+  }
+
+  .after {
+    margin-top: 26px;
+    font-size: 13px;
+    color: var(--stone-light);
+    letter-spacing: 0.02em;
+  }
+
+  /* ── FOOT ── */
+  footer {
+    padding: 44px 0 72px;
+    font-size: 11px;
+    letter-spacing: 0.16em;
+    text-transform: uppercase;
+    color: var(--stone-light);
+    display: flex;
+    justify-content: space-between;
+    gap: 20px;
+    flex-wrap: wrap;
+  }
+
+  footer a {
+    color: var(--stone-light);
+    text-decoration: none;
+    border-bottom: 1px solid rgba(138,133,125,0.4);
+  }
+
+  footer a:hover, footer a:focus-visible { color: var(--plaster); }
+
+  :focus-visible {
+    outline: 2px solid var(--brass);
+    outline-offset: 3px;
+  }
+
+  @media (max-width: 560px) {
+    .pair { grid-template-columns: 1fr; }
+    .terms li { flex-direction: column; gap: 6px; }
+    .terms .k { flex: none; padding-top: 0; }
+    .hero { padding: 64px 0 72px; }
+    section { padding: 56px 0; }
+    .line { padding: 44px 28px; margin: 56px 0; }
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    html { scroll-behavior: auto; }
+    * { transition: none !important; }
+  }
+</style>
+</head>
+<body>
+
+<div class="wrap">
+
+  <div class="mark">Que Athena</div>
+
+  <div class="hero">
+    <h1 class="statement">
+      <span>One problem.</span>
+      <span>One hour.</span>
+      <span class="last">Untangled.</span>
+    </h1>
+    <p class="lede">You bring the thing you're stuck on. I think through it with you. You leave seeing it clearly.</p>
+  </div>
+
+  <section>
+    <div class="eyebrow">What happens</div>
+    <p>You're carrying a decision you keep circling. Or a problem you've turned over so many times it's stopped moving. You've talked to people about it. They agreed with you, or they told you what they'd do, and neither one helped.</p>
+    <p>This is different. For an hour, I think about your thing with the full weight of my attention. I ask the questions nobody's asked you. I say the part you already know and haven't let yourself hear.</p>
+    <p class="quiet">By the end you see the thing plainly. What you do about it is yours.</p>
+  </section>
+
+  <section>
+    <div class="eyebrow">Terms</div>
+    <div class="pair">
+      <div class="cell">
+        <h3>This is</h3>
+        <ul>
+          <li>One problem, brought by you</li>
+          <li>Sixty minutes of real thinking</li>
+          <li>Direct, and sometimes uncomfortable</li>
+          <li>Finished when the hour ends</li>
+        </ul>
+      </div>
+      <div class="cell no">
+        <h3>This isn't</h3>
+        <ul>
+          <li>Coaching</li>
+          <li>Consulting</li>
+          <li>A package or a program</li>
+          <li>Advice you're expected to take</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <div class="line">
+    <blockquote>&ldquo;Choosing is grieving all of the possibilities that won&rsquo;t happen.&rdquo;</blockquote>
+    <blockquote>&ldquo;Each decision is a thousand goodbyes to the versions of yourself and your life that you will not experience.&rdquo;</blockquote>
+  </div>
+
+  <section>
+    <div class="eyebrow">How it works</div>
+    <ul class="terms">
+      <li><span class="k">Book</span><span class="v">Pay, then choose your time. Both happen in one step.</span></li>
+      <li><span class="k">Before</span><span class="v">You send me the one thing. A paragraph is plenty.</span></li>
+      <li><span class="k">The hour</span><span class="v">Video. No slides, no deck, no framework.</span></li>
+      <li><span class="k">After</span><span class="v">Nothing. No follow-up, no upsell. If you bring me something new later, that's a new hour.</span></li>
+    </ul>
+  </section>
+
+  <section class="book">
+    <div class="eyebrow">Book it</div>
+    <div class="price">$350<small>One hour · Paid in full</small></div>
+    <a class="cta" href="REPLACE_BOOKING_LINK">Bring me one thing</a>
+    <p class="after">One at a time. If nothing's open, nothing's open.</p>
+  </section>
+
+  <footer>
+    <span>Que Athena</span>
+    <span><a href="mailto:que@queathena.com">que@queathena.com</a></span>
+  </footer>
+
+</div>
+
+</body>
+</html>
