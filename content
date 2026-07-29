@@ -1,0 +1,213 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="color-scheme" content="light only">
+<title>Content, In Your Voice — Que Athena</title>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400&family=Inter:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --peach:#e6decd; --charcoal:#212118; --tan:#e4e2dd; --lighttan:#f2f1ee; --sage:#b6beaa;
+    color-scheme: light only;
+  }
+  html{color-scheme:light only;}
+  *{margin:0;padding:0;box-sizing:border-box;}
+  body{background:var(--lighttan);color:var(--charcoal);font-family:'Inter',sans-serif;font-weight:300;line-height:1.6;-webkit-text-fill-color:currentColor;}
+  .wrap{max-width:1000px;margin:0 auto;padding:0 24px;}
+
+  /* HERO */
+  .hero{background:var(--peach);padding:88px 0 72px;text-align:center;}
+  .hero .wrap{max-width:720px;}
+  .eyebrow{font-size:12px;letter-spacing:0.28em;text-transform:uppercase;color:#8a7f68;margin-bottom:24px;}
+  h1{font-family:'Cormorant Garamond',serif;font-weight:500;font-size:clamp(40px,6vw,62px);line-height:1.08;color:var(--charcoal);margin-bottom:24px;}
+  h1 em{font-style:italic;}
+  .hero p{font-size:18px;color:#4a463d;max-width:560px;margin:0 auto;}
+
+  /* INTRO */
+  .intro{padding:64px 0 24px;text-align:center;}
+  .intro .wrap{max-width:640px;}
+  .intro p{font-size:17px;color:#3a382f;margin-bottom:18px;}
+
+  /* PricinG */
+  .pricing{padding:48px 0 72px;}
+  .pricing-head{text-align:center;margin-bottom:48px;}
+  .pricing-head h2{font-family:'Cormorant Garamond',serif;font-weight:500;font-size:38px;margin-bottom:12px;}
+  .pricing-head p{color:#6a675c;font-size:15px;}
+  .cards{display:grid;grid-template-columns:repeat(3,1fr);gap:20px;}
+  .card{background:#fff;border:1px solid var(--tan);border-radius:14px;padding:36px 28px;display:flex;flex-direction:column;position:relative;}
+  .card.featured{border-color:var(--sage);border-width:2px;box-shadow:0 12px 40px rgba(118,128,100,0.12);}
+  .badge{position:absolute;top:-11px;left:50%;transform:translateX(-50%);background:var(--sage);color:#fff;font-size:10px;letter-spacing:0.14em;text-transform:uppercase;padding:5px 16px;border-radius:20px;font-weight:500;}
+  .card-name{font-family:'Cormorant Garamond',serif;font-size:26px;font-weight:600;margin-bottom:6px;}
+  .card-tag{font-size:13px;color:#8a7f68;margin-bottom:22px;min-height:34px;}
+  .price{font-family:'Cormorant Garamond',serif;font-size:44px;font-weight:600;line-height:1;margin-bottom:4px;}
+  .price span{font-size:16px;color:#8a7f68;font-family:'Inter';font-weight:300;}
+  .price-note{font-size:12px;color:#a09a88;margin-bottom:26px;min-height:32px;}
+  .card ul{list-style:none;margin-bottom:28px;flex:1;}
+  .card li{font-size:14px;color:#3a382f;padding:8px 0;border-bottom:1px solid #f0eee7;display:flex;gap:10px;}
+  .card li:last-child{border-bottom:none;}
+  .card li::before{content:'—';color:var(--sage);flex-shrink:0;}
+  .btn{display:block;text-align:center;padding:14px;border-radius:8px;font-size:14px;letter-spacing:0.04em;text-decoration:none;font-weight:500;transition:opacity .2s;}
+  .btn-primary{background:var(--charcoal);color:var(--lighttan);}
+  .btn-outline{background:transparent;color:var(--charcoal);border:1px solid var(--charcoal);}
+  .btn:hover{opacity:0.85;}
+
+  /* HOW */
+  .how{background:var(--peach);padding:72px 0;}
+  .how h2{font-family:'Cormorant Garamond',serif;font-weight:500;font-size:36px;text-align:center;margin-bottom:48px;}
+  .steps{display:grid;grid-template-columns:repeat(3,1fr);gap:32px;}
+  .step{text-align:center;}
+  .step-num{font-family:'Cormorant Garamond',serif;font-size:34px;color:var(--sage);font-weight:600;margin-bottom:12px;}
+  .step h3{font-size:16px;font-weight:500;margin-bottom:8px;letter-spacing:0.02em;}
+  .step p{font-size:14px;color:#4a463d;}
+
+  /* SYSTEM / offer B */
+  .system{padding:72px 0;text-align:center;}
+  .system .wrap{max-width:640px;}
+  .system h2{font-family:'Cormorant Garamond',serif;font-weight:500;font-size:32px;margin-bottom:16px;}
+  .system p{font-size:16px;color:#3a382f;margin-bottom:28px;}
+
+  /* FOOTER */
+  footer{background:var(--charcoal);color:#c9c5b8;padding:48px 0;text-align:center;font-size:13px;}
+  footer .name{font-family:'Cormorant Garamond',serif;font-size:22px;color:var(--lighttan);margin-bottom:8px;}
+
+  @media (max-width:860px){
+    .cards{grid-template-columns:1fr;max-width:420px;margin:0 auto;}
+    .steps{grid-template-columns:1fr;gap:36px;}
+    .card.featured{order:-1;}
+  }
+</style>
+</head>
+<body>
+
+<div class="hero">
+  <div class="wrap">
+    <div class="eyebrow">Content, in your voice</div>
+    <h1>You already say it well.<br>Let's <em>get it out there.</em></h1>
+    <p>You're great on a call, on a mic, on the page. You just don't have time to turn that into a steady stream of posts. I do that for you, and it sounds like you, not a template.</p>
+  </div>
+</div>
+
+<div class="intro">
+  <div class="wrap">
+    <p>Send me one thing you've already made, a video, a podcast, an article, or a short recording of you answering a few questions. I turn it into a week or a month of content, written for how each platform actually reads.</p>
+    <p>This is my direct rate. No platform, no middleman. Just book below.</p>
+  </div>
+</div>
+
+<div class="pricing">
+  <div class="wrap">
+    <div class="pricing-head">
+      <h2>Ways to work together</h2>
+      <p>Start with a week. Continue by the month.</p>
+    </div>
+    <div class="cards">
+
+      <!-- TESTER -->
+      <div class="card">
+        <div class="card-name">The Tester Week</div>
+        <div class="card-tag">Try it. See how it feels.</div>
+        <div class="price">$175</div>
+        <div class="price-note">Credits toward your first month if you continue within 30 days.</div>
+        <ul>
+          <li>7 LinkedIn posts, in your voice</li>
+          <li>2 Instagram carousels</li>
+          <li>7 quotable / X-style posts</li>
+          <li>From one input</li>
+          <li>Delivered ready to post</li>
+        </ul>
+        <a href="#" class="btn btn-outline" data-stripe="TESTER_WEEK_LINK">Book the Tester Week</a>
+      </div>
+
+      <!-- MONTHLY CONTENT ONLY -->
+      <div class="card featured">
+        <div class="badge">Most chosen</div>
+        <div class="card-name">Monthly</div>
+        <div class="card-tag">Content only. Where the results actually build.</div>
+        <div class="price">$650<span>/mo</span></div>
+        <div class="price-note">Better value than four separate weeks.</div>
+        <ul>
+          <li>~16 LinkedIn posts</li>
+          <li>~6 Instagram carousels</li>
+          <li>~16 quotable / X-style posts</li>
+          <li>From one or two inputs a month</li>
+          <li>Delivered on a content calendar</li>
+        </ul>
+        <a href="#" class="btn btn-primary" data-stripe="MONTHLY_CONTENT_LINK">Book Monthly</a>
+      </div>
+
+      <!-- DONE FOR YOU -->
+      <div class="card">
+        <div class="card-name">Monthly, Done For You</div>
+        <div class="card-tag">I write it and I post it. Fully hands-off.</div>
+        <div class="price">$950<span>/mo</span></div>
+        <div class="price-note">Everything in Monthly, plus posting.</div>
+        <ul>
+          <li>Everything in Monthly</li>
+          <li>I schedule and post it for you</li>
+          <li>Across the full month</li>
+          <li>A simple calendar so you see what's going out</li>
+          <li>Completely off your plate</li>
+        </ul>
+        <a href="#" class="btn btn-outline" data-stripe="MONTHLY_DFY_LINK">Book Done For You</a>
+      </div>
+
+    </div>
+  </div>
+</div>
+
+<div class="how">
+  <div class="wrap">
+    <h2>How it works</h2>
+    <div class="steps">
+      <div class="step">
+        <div class="step-num">1</div>
+        <h3>Book your package</h3>
+        <p>Choose a week or a month above and check out. You'll get a short intake form right after.</p>
+      </div>
+      <div class="step">
+        <div class="step-num">2</div>
+        <h3>Send me one thing</h3>
+        <p>A video, a podcast, an article, or a recording of you answering my questions. That's all I need.</p>
+      </div>
+      <div class="step">
+        <div class="step-num">3</div>
+        <h3>Get your content</h3>
+        <p>Ready-to-post content in your voice, delivered on a calendar. Post it yourself, or let me handle it.</p>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="system">
+  <div class="wrap">
+    <h2>Want to own the machine?</h2>
+    <p>For clients who'd rather run this themselves, I also build the system behind it: a workflow that turns each new video or call into a batch of posts, with the automation to publish it. Stop buying content one month at a time. Own a system that produces it.</p>
+    <a href="#" class="btn btn-outline" style="display:inline-block;" data-stripe="CONTACT_LINK">Ask me about it</a>
+  </div>
+</div>
+
+<footer>
+  <div class="wrap">
+    <div class="name">Que Athena</div>
+    <div>Content and brand strategy · <a href="mailto:que@queathena.com" style="color:var(--sage);text-decoration:none;">que@queathena.com</a></div>
+  </div>
+</footer>
+
+<script>
+  // PLACEHOLDER LINKS — replace the data-stripe values with your real Stripe Payment Link URLs.
+  // TESTER_WEEK_LINK, MONTHLY_CONTENT_LINK, MONTHLY_DFY_LINK, CONTACT_LINK
+  const links = {
+    TESTER_WEEK_LINK: "https://buy.stripe.com/cNi9AUaesa8sb4n6LVebu00",
+    MONTHLY_CONTENT_LINK: "https://buy.stripe.com/6oUbJ2euI1BWegz5HRebu01",
+    MONTHLY_DFY_LINK: "https://buy.stripe.com/4gM5kEeuIcgAa0jgmvebu02",
+    CONTACT_LINK: "mailto:que@queathena.com"
+  };
+  document.querySelectorAll('[data-stripe]').forEach(a=>{
+    const key=a.getAttribute('data-stripe');
+    if(links[key]) a.setAttribute('href', links[key]);
+  });
+</script>
+
+</body>
+</html>
