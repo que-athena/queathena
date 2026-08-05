@@ -1,0 +1,553 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>The Curl Map — Curly Hair Help for Moms of School-Age Kids</title>
+<meta name="description" content="Curly hair help for moms of school-age kids. A licensed stylist with 15 years of experience reads your child's curl type and textures and builds a personalized hair playbook. Biracial and mixed hair care, made simple.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,400;0,9..144,500;0,9..144,600;1,9..144,400;1,9..144,500&family=Figtree:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --oat: #F3EDE1;
+    --oat-deep: #EAE1D0;
+    --clay: #B5643C;
+    --clay-deep: #9A4E2C;
+    --espresso: #2E2621;
+    --espresso-soft: #4A4038;
+    --gold: #C39A5B;
+    --sage: #8B9178;
+    --cream-card: #FBF8F2;
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  html { scroll-behavior: smooth; }
+
+  body {
+    background-color: var(--oat);
+    color: var(--espresso);
+    font-family: 'Figtree', sans-serif;
+    font-weight: 400;
+    line-height: 1.7;
+    font-size: 18px;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  .wrap { max-width: 1120px; margin: 0 auto; padding: 0 32px; }
+  .narrow { max-width: 720px; margin: 0 auto; }
+
+  /* TYPE */
+  h1, h2, h3 { font-family: 'Fraunces', serif; font-weight: 400; line-height: 1.12; }
+
+  .eyebrow {
+    font-family: 'Figtree', sans-serif;
+    font-weight: 600;
+    font-size: 13px;
+    letter-spacing: 0.16em;
+    text-transform: uppercase;
+    color: var(--clay);
+  }
+
+  .section-header {
+    font-family: 'Fraunces', serif;
+    font-style: italic;
+    font-weight: 400;
+    font-size: clamp(26px, 3.4vw, 38px);
+    color: var(--espresso);
+    margin-bottom: 32px;
+  }
+
+  p { margin-bottom: 22px; }
+  p:last-child { margin-bottom: 0; }
+
+  /* BUTTONS */
+  .btn {
+    display: inline-block;
+    background: var(--clay);
+    color: var(--cream-card);
+    font-family: 'Figtree', sans-serif;
+    font-weight: 600;
+    font-size: 17px;
+    letter-spacing: 0.01em;
+    padding: 18px 40px;
+    border-radius: 2px;
+    text-decoration: none;
+    transition: background 0.25s ease, transform 0.25s ease;
+  }
+  .btn:hover { background: var(--clay-deep); transform: translateY(-2px); }
+
+  .btn-note { font-size: 14.5px; color: var(--espresso-soft); margin-top: 16px; }
+
+  /* HERO */
+  .hero {
+    position: relative;
+    padding: 88px 0 96px;
+    overflow: hidden;
+  }
+  .hero-grid {
+    display: grid;
+    grid-template-columns: 1.15fr 0.85fr;
+    gap: 56px;
+    align-items: center;
+  }
+  .hero h1 {
+    font-size: clamp(38px, 5.6vw, 64px);
+    font-weight: 400;
+    margin: 22px 0 26px;
+    letter-spacing: -0.01em;
+  }
+  .hero h1 em { font-style: italic; color: var(--clay); }
+  .hero-sub {
+    font-size: 20px;
+    color: var(--espresso-soft);
+    margin-bottom: 34px;
+    max-width: 540px;
+  }
+
+  /* HEAD-MAP SIGNATURE */
+  .headmap-frame {
+    position: relative;
+    aspect-ratio: 4 / 5;
+    border-radius: 4px;
+    overflow: hidden;
+    background: var(--oat-deep);
+  }
+  .headmap-photo {
+    position: absolute; inset: 0;
+    width: 100%; height: 100%;
+    object-fit: cover;
+    display: block;
+  }
+  .headmap-photo-placeholder {
+    position: absolute; inset: 0;
+    display: flex; align-items: center; justify-content: center;
+    text-align: center;
+    color: var(--espresso-soft);
+    font-size: 14px;
+    padding: 24px;
+    background:
+      linear-gradient(135deg, rgba(181,100,60,0.08), rgba(139,145,120,0.10)),
+      var(--oat-deep);
+    border: 1px dashed rgba(46,38,33,0.28);
+  }
+  /* zone overlay — the signature motif */
+  .zones { position: absolute; inset: 0; pointer-events: none; }
+  .zone-dot {
+    position: absolute;
+    width: 11px; height: 11px;
+    border-radius: 50%;
+    background: var(--gold);
+    box-shadow: 0 0 0 5px rgba(195,154,91,0.22);
+  }
+  .zone-label {
+    position: absolute;
+    font-family: 'Figtree', sans-serif;
+    font-size: 11px;
+    font-weight: 600;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: var(--cream-card);
+    background: rgba(46,38,33,0.72);
+    padding: 4px 9px;
+    border-radius: 2px;
+    white-space: nowrap;
+    backdrop-filter: blur(2px);
+  }
+
+  /* SECTIONS */
+  section { padding: 76px 0; }
+  .section-tint { background: var(--oat-deep); }
+  .section-dark { background: var(--espresso); color: var(--oat); }
+  .section-dark .section-header { color: var(--oat); }
+  .section-dark .eyebrow { color: var(--gold); }
+
+  .lead-line { font-size: 21px; color: var(--espresso); }
+
+  .soft-quote {
+    font-family: 'Fraunces', serif;
+    font-style: italic;
+    color: var(--clay-deep);
+  }
+
+  /* PLAYBOOK GRID */
+  .playbook-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 2px;
+    background: rgba(46,38,33,0.10);
+    border: 1px solid rgba(46,38,33,0.10);
+    border-radius: 4px;
+    overflow: hidden;
+    margin-top: 40px;
+  }
+  .playbook-item {
+    background: var(--cream-card);
+    padding: 30px 32px;
+  }
+  .playbook-item h3 {
+    font-size: 21px;
+    font-style: italic;
+    color: var(--clay-deep);
+    margin-bottom: 10px;
+  }
+  .playbook-item p { font-size: 16px; color: var(--espresso-soft); }
+
+  /* WHO I AM */
+  .who-grid {
+    display: grid;
+    grid-template-columns: 0.85fr 1.15fr;
+    gap: 56px;
+    align-items: start;
+  }
+  .who-photo {
+    aspect-ratio: 4 / 5;
+    border-radius: 4px;
+    overflow: hidden;
+    background: var(--oat-deep);
+    position: sticky;
+    top: 40px;
+  }
+  .who-photo img { width: 100%; height: 100%; object-fit: cover; display: block; }
+  .who-photo-placeholder {
+    width: 100%; height: 100%;
+    display: flex; align-items: center; justify-content: center;
+    text-align: center; padding: 24px;
+    color: var(--espresso-soft); font-size: 14px;
+    border: 1px dashed rgba(46,38,33,0.28);
+  }
+  .who-body p { font-size: 18.5px; }
+  .who-body .kicker {
+    font-family: 'Fraunces', serif;
+    font-style: italic;
+    font-size: clamp(24px, 3vw, 32px);
+    color: var(--espresso);
+    margin-bottom: 28px;
+    line-height: 1.25;
+  }
+
+  /* PROOF BAND */
+  .proof-band {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 4px;
+    margin-top: 8px;
+  }
+  .proof-tile {
+    aspect-ratio: 3 / 4;
+    background: rgba(255,255,255,0.06);
+    border: 1px dashed rgba(243,237,225,0.3);
+    display: flex; align-items: center; justify-content: center;
+    text-align: center; padding: 16px;
+    font-size: 13px; color: rgba(243,237,225,0.6);
+  }
+
+  /* FEELING */
+  .feeling p { font-size: 20px; }
+  .feeling .first-word { color: var(--clay); font-weight: 500; font-style: italic; font-family: 'Fraunces', serif; }
+
+  /* OFFER BOX */
+  .offer-box {
+    background: var(--cream-card);
+    border: 1px solid rgba(46,38,33,0.12);
+    border-radius: 6px;
+    padding: 56px 48px;
+    text-align: center;
+    box-shadow: 0 24px 60px -32px rgba(46,38,33,0.35);
+  }
+  .offer-box h3 { font-size: 34px; font-style: italic; margin-bottom: 18px; }
+  .offer-box .price {
+    font-family: 'Fraunces', serif;
+    font-size: 56px;
+    color: var(--clay);
+    margin: 24px 0 8px;
+    line-height: 1;
+  }
+  .offer-desc { color: var(--espresso-soft); max-width: 460px; margin: 0 auto 28px; }
+
+  /* FAQ */
+  .faq-item {
+    border-top: 1px solid rgba(46,38,33,0.14);
+    padding: 26px 0;
+  }
+  .faq-item:last-child { border-bottom: 1px solid rgba(46,38,33,0.14); }
+  .faq-q {
+    font-family: 'Fraunces', serif;
+    font-size: 21px;
+    color: var(--espresso);
+    margin-bottom: 10px;
+  }
+  .faq-a { font-size: 16.5px; color: var(--espresso-soft); margin: 0; }
+
+  /* CLOSING */
+  .closing { text-align: center; }
+  .closing h2 {
+    font-size: clamp(30px, 4.4vw, 50px);
+    font-weight: 400;
+    max-width: 780px;
+    margin: 0 auto 40px;
+  }
+  .closing h2 em { font-style: italic; color: var(--gold); }
+
+  /* FOOTER */
+  footer {
+    background: var(--espresso);
+    color: rgba(243,237,225,0.65);
+    padding: 44px 0;
+    font-size: 14px;
+    text-align: center;
+  }
+
+  /* REVEAL */
+  .reveal { opacity: 0; transform: translateY(24px); transition: opacity 0.7s ease, transform 0.7s ease; }
+  .reveal.in { opacity: 1; transform: none; }
+
+  @media (prefers-reduced-motion: reduce) {
+    .reveal { opacity: 1; transform: none; transition: none; }
+    html { scroll-behavior: auto; }
+    .btn:hover { transform: none; }
+  }
+
+  /* RESPONSIVE */
+  @media (max-width: 860px) {
+    body { font-size: 17px; }
+    .hero-grid, .who-grid { grid-template-columns: 1fr; gap: 40px; }
+    .hero { padding: 56px 0 64px; }
+    .who-photo { position: static; max-width: 380px; }
+    .playbook-grid { grid-template-columns: 1fr; }
+    .proof-band { grid-template-columns: 1fr 1fr; }
+    section { padding: 56px 0; }
+    .offer-box { padding: 40px 26px; }
+  }
+  @media (max-width: 480px) {
+    .wrap { padding: 0 22px; }
+    .proof-band { grid-template-columns: 1fr; }
+  }
+</style>
+</head>
+<body>
+
+<!-- ============ HERO ============ -->
+<header class="hero">
+  <div class="wrap hero-grid">
+    <div class="reveal in">
+      <span class="eyebrow">Curly Hair Help for Moms of School-Age Kids</span>
+      <h1>You have every product. You still don't know how to do your daughter's <em>curly hair.</em></h1>
+      <p class="hero-sub">It was never you. No one ever taught you what your child's hair actually is, or how to care for it. I can. I've spent fifteen years doing exactly this, in person, for moms who love their kids and feel lost in the hair aisle.</p>
+      <a href="#book" class="btn">Book The Curl Map — $97</a>
+      <p class="btn-note">A 45-minute video call and a personalized hair playbook, made for your child. Delivered within 3 days.</p>
+    </div>
+
+    <!-- SIGNATURE: head-map frame. Replace placeholder with a warm photo of a school-age child's curls (crown/back view works well). -->
+    <div class="headmap-frame reveal in">
+      <!-- IMAGE SLOT 1 — HERO -->
+      <div class="headmap-photo-placeholder">
+        IMAGE SLOT 1 · HERO<br>Warm, close photo of a curly-haired school-age child (back or 3/4 view of the head reads best with the zone map). Portrait orientation, 4:5.
+      </div>
+      <!-- To use a real image: delete the placeholder div above and uncomment:
+      <img class="headmap-photo" src="YOUR-IMAGE.jpg" alt="School-age child with curly, multi-textured hair">
+      -->
+      <div class="zones">
+        <span class="zone-dot" style="top:20%; left:46%;"></span>
+        <span class="zone-label" style="top:15%; left:54%;">Crown</span>
+        <span class="zone-dot" style="top:48%; left:24%;"></span>
+        <span class="zone-label" style="top:44%; left:5%;">Edges</span>
+        <span class="zone-dot" style="top:74%; left:52%;"></span>
+        <span class="zone-label" style="top:78%; left:56%;">Nape</span>
+      </div>
+    </div>
+  </div>
+</header>
+
+<!-- ============ RECOGNITION ============ -->
+<section>
+  <div class="wrap narrow reveal">
+    <span class="eyebrow">You know this feeling</span>
+    <div style="height:24px;"></div>
+    <p>You've stood in the curly hair aisle holding three bottles, reading the back of every one, and still left unsure which was right for your daughter.</p>
+    <p>You've tried the routines. The ones from YouTube, the ones a friend swore by, the ones that worked beautifully on some other child and did nothing for yours. So now there's a cabinet full of leave-ins and curl creams and gels you bought with hope and quietly stopped reaching for.</p>
+    <p>And wash day. Wash day has somehow become the hardest hour of your week. The detangling that turns into tears. The style that falls apart before school. Some of those tears are hers. Some days, when she can't see, they're yours.</p>
+    <p>Under all of it sits the thing you've never said out loud. You've heard yourself call her hair "hard to manage," and then felt your stomach drop, because you wonder <span class="soft-quote">if she can tell this is who I feel even without saying it.</span></p>
+    <p class="lead-line">Read this slowly. You are a good mother. You are a woman who wants to get this right for a child you love more than your own life, and no one ever handed you the knowledge to do it. That gap was never yours to carry alone. It's the reason I'm here.</p>
+  </div>
+</section>
+
+<!-- ============ THE TURN ============ -->
+<section class="section-tint">
+  <div class="wrap narrow reveal">
+    <h2 class="section-header">Here is what no one explained to you.</h2>
+    <p>Your child most likely has more than one curl pattern on her head. Her crown behaves one way, her edges another, the nape something else entirely. Almost every curly hair routine online treats a whole head as a single type of hair. So you've been following steps that were never written for hers.</p>
+    <p>That's the real reason it hasn't worked. You tried hard. You love her. You were simply handed the wrong map, over and over, and told it was the right one.</p>
+    <p>When you can finally see what her hair actually is, the rest gets so much simpler. You'll know which products belong in your cabinet and which ones to give away. You'll have a wash day built around the mornings you really have. You'll have styles that work with her curls. This is learnable, and you are closer to it than you think.</p>
+  </div>
+</section>
+
+<!-- ============ WHAT THE CURL MAP IS ============ -->
+<section>
+  <div class="wrap narrow reveal">
+    <span class="eyebrow">What The Curl Map Is</span>
+    <h2 class="section-header" style="margin-top:20px;">One call. One clear plan. Made for her.</h2>
+    <p>We'll meet on a video call for 45 minutes. Before we do, you send me photos of her hair and tell me what you've been struggling with. By the time we talk, I've already started reading her curl type and her textures.</p>
+    <p>On the call, I show you exactly what her hair is, one section of her head at a time. We go through everything you own, and I tell you what to keep and what to stop buying. We build a wash day and a detangling routine around your real life. And you finally get to ask every question you've never had anyone to answer.</p>
+    <p>Then I send you a playbook. Made for your daughter. Yours to keep for good.</p>
+  </div>
+</section>
+
+<!-- ============ PLAYBOOK ============ -->
+<section class="section-tint">
+  <div class="wrap reveal">
+    <div class="narrow" style="text-align:center;">
+      <span class="eyebrow">Inside Your Playbook</span>
+      <h2 class="section-header" style="margin-top:20px;">Made for your child. Yours to keep.</h2>
+    </div>
+    <div class="playbook-grid">
+      <div class="playbook-item">
+        <h3>Her head map</h3>
+        <p>Her actual textures, zone by zone, so you finally know what you're working with.</p>
+      </div>
+      <div class="playbook-item">
+        <h3>The everyday</h3>
+        <p>Wash day, the in-between days, and the fast school-morning version that survives the day. Detangling without the tears.</p>
+      </div>
+      <div class="playbook-item">
+        <h3>Summer and sports</h3>
+        <p>Chlorine, saltwater, sweat, sun. What to do before the pool and after, for the kid who never sits still.</p>
+      </div>
+      <div class="playbook-item">
+        <h3>The handoff sheet</h3>
+        <p>A simple page you can hand to grandma, the sitter, the sleepover parent. So her hair is cared for even when you're not there.</p>
+      </div>
+      <div class="playbook-item">
+        <h3>Growing into it</h3>
+        <p>How to start handing her the steps she's ready for, and how to talk about her hair so she grows up loving it.</p>
+      </div>
+      <div class="playbook-item">
+        <h3>When to get help</h3>
+        <p>What's normal, what's not, and how to find a stylist for her: what to ask, what to pay, and how to know you're in the wrong chair.</p>
+      </div>
+      <div class="playbook-item">
+        <h3>Your product list</h3>
+        <p>Exactly what to buy, and what to skip.</p>
+      </div>
+      <div class="playbook-item" style="background:var(--clay); color:var(--cream-card); display:flex; flex-direction:column; justify-content:center;">
+        <h3 style="color:var(--cream-card); font-style:italic;">Yours to keep for good.</h3>
+        <p style="color:rgba(251,248,242,0.85);">Every future wash day, every new season, every handoff. One map you'll come back to for years.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ WHO I AM ============ -->
+<section>
+  <div class="wrap who-grid reveal">
+    <!-- IMAGE SLOT 2 — PORTRAIT -->
+    <div class="who-photo">
+      <div class="who-photo-placeholder">
+        IMAGE SLOT 2 · YOUR PORTRAIT<br>Warm, real photo of you, on camera, looking at the lens. This is the credibility. Portrait, 4:5.
+      </div>
+      <!-- <img src="YOUR-PORTRAIT.jpg" alt="Que, licensed stylist with 15 years of experience in every hair texture"> -->
+    </div>
+    <div class="who-body">
+      <span class="eyebrow">Who I Am</span>
+      <p class="kicker" style="margin-top:18px;">I've done this work for fifteen years.</p>
+      <p>I'm a licensed stylist, and I've spent fifteen years with my hands in every kind of hair there is. Editorial sets and everyday clients. Straight, wavy, curly, coily, and every texture in between. I was the stylist people came to when no one else knew what to do with their hair. Whatever was growing out of your head, I knew how to work with it.</p>
+      <p>Somewhere along the way, I realized the real work wasn't styling hair for people. It was teaching them to care for their own, and their children's. So I made that my mission. Every client who sat in my chair left knowing their hair, understanding it, and finally loving it.</p>
+      <p>I care about this for a reason that started long before the salon. When I was a little girl, no one took the time to understand my hair. No one taught me, or the people around me, how to care for it, what it needed, which products and styles let it thrive. I know exactly what it feels like to grow up with hair no one knew how to love. I decided no client of mine would ever feel that way. And no child of theirs would either.</p>
+      <p class="soft-quote" style="font-size:21px;">That's what The Curl Map is. It's me doing for your daughter what I wish someone had done for me.</p>
+    </div>
+  </div>
+</section>
+
+<!-- ============ PROOF BAND ============ -->
+<section class="section-dark">
+  <div class="wrap reveal">
+    <div class="narrow" style="text-align:center;">
+      <span class="eyebrow">Fifteen Years, Every Texture</span>
+      <h2 class="section-header" style="margin-top:18px;">Real hair. Real range.</h2>
+    </div>
+    <!-- IMAGE SLOT 3 — PROOF (your commercial-use editorial work) -->
+    <div class="proof-band">
+      <div class="proof-tile">IMAGE SLOT 3A<br>Editorial / client work — curl close-up</div>
+      <div class="proof-tile">IMAGE SLOT 3B<br>Editorial / client work — different texture</div>
+      <div class="proof-tile">IMAGE SLOT 3C<br>Editorial / client work — styling result</div>
+    </div>
+    <p style="text-align:center; margin-top:28px; color:rgba(243,237,225,0.7); font-size:15px;">Your own editorial and client photography goes here. Use images you have commercial rights to. Curl and texture close-ups read stronger than posed faces.</p>
+  </div>
+</section>
+
+<!-- ============ THE FEELING ============ -->
+<section class="feeling">
+  <div class="wrap narrow reveal">
+    <span class="eyebrow">What You'll Walk Away With</span>
+    <div style="height:28px;"></div>
+    <p><span class="first-word">Relief,</span> first. The kind that comes from finally understanding something that's confused you for years and secretly blamed yourself for.</p>
+    <p><span class="first-word">Then direction.</span> A real plan, made for your child, that fits the life you actually live.</p>
+    <p><span class="first-word">And something quieter.</span> The confidence that you can do her hair, care for it, and hand her a good relationship with it as she grows.</p>
+    <p>You don't have to become an expert yourself. You get an hour with someone who already is, in your corner, telling you exactly what to do for your own child.</p>
+  </div>
+</section>
+
+<!-- ============ OFFER / BOOK ============ -->
+<section id="book" class="section-tint">
+  <div class="wrap narrow reveal">
+    <div class="offer-box">
+      <span class="eyebrow">The Curl Map</span>
+      <div class="price">$97</div>
+      <p class="offer-desc">A 45-minute video consultation and a personalized playbook, made for your child, delivered within 3 days.</p>
+      <a href="#" class="btn">Book The Curl Map</a>
+      <p class="btn-note">Photos and a short intake come first, so we make the most of our time together.</p>
+    </div>
+  </div>
+</section>
+
+<!-- ============ FAQ ============ -->
+<section>
+  <div class="wrap narrow reveal">
+    <h2 class="section-header">A few things moms ask.</h2>
+    <div class="faq-item">
+      <p class="faq-q">My kid won't sit still for a video call.</p>
+      <p class="faq-a">She doesn't have to be there. The call is for you. You send photos ahead of time, and I read her hair from those. You get to focus.</p>
+    </div>
+    <div class="faq-item">
+      <p class="faq-q">I've read all the blogs and watched all the videos. How is this different?</p>
+      <p class="faq-a">Those are written for hair in general, for no child in particular. This is a real read of your own child's hair, from someone who has done this in person for fifteen years. You leave with the answer for her, not one more routine to try and abandon.</p>
+    </div>
+    <div class="faq-item">
+      <p class="faq-q">What if I don't know her curl type or any of the terms?</p>
+      <p class="faq-a">You don't need to. That's my job. You just show up.</p>
+    </div>
+    <div class="faq-item">
+      <p class="faq-q">Is this only for a certain kind of hair?</p>
+      <p class="faq-a">This is for curly, coily, and multi-textured hair on school-age kids, especially when your child's hair is different from your own.</p>
+    </div>
+    <div class="faq-item">
+      <p class="faq-q">What do I actually get?</p>
+      <p class="faq-a">The 45-minute call, and the playbook to keep. The playbook has her head map, her routine, summer and sports care, the handoff sheet, the stylist guide, and your product list.</p>
+    </div>
+  </div>
+</section>
+
+<!-- ============ CLOSING ============ -->
+<section class="section-dark closing">
+  <div class="wrap reveal">
+    <h2>She's going to grow up with this hair. Let's make sure she grows up <em>loving it.</em></h2>
+    <a href="#book" class="btn">Book The Curl Map — $97</a>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap">
+    The Curl Map · Curly hair help for moms of school-age kids · Made by a licensed stylist
+  </div>
+</footer>
+
+<script>
+  const obs = new IntersectionObserver((entries) => {
+    entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('in'); obs.unobserve(e.target); } });
+  }, { threshold: 0.12 });
+  document.querySelectorAll('.reveal').forEach(el => obs.observe(el));
+</script>
+
+</body>
+</html>
