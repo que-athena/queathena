@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="color-scheme" content="light only">
+<title>almost™ — Project Dashboard</title>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,500;0,600;1,500&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --peach:#e6decd; --charcoal:#212118; --tan:#e4e2dd; --lighttan:#f2f1ee; --sage:#b6beaa;
+    --sage-deep:#7f8a68; --ink-soft:#45423a; --grey:#8a887f;
+    --done:#7f8a68; --progress:#c9a34e; --review:#5b7f9c; --todo:#c4c1b6;
+    color-scheme:light only;
+  }
+  *{margin:0;padding:0;box-sizing:border-box;}
+  html,body{color-scheme:light only;}
+  body{background:var(--lighttan);color:var(--charcoal);font-family:'Inter',sans-serif;font-weight:300;line-height:1.6;}
+  .wrap{max-width:840px;margin:0 auto;padding:0 26px;}
+
+  .top{background:var(--charcoal);color:var(--lighttan);padding:52px 0 44px;}
+  .top .eyebrow{font-size:11px;letter-spacing:0.3em;text-transform:uppercase;color:var(--sage);margin-bottom:16px;}
+  .top h1{font-family:'Cormorant Garamond',serif;font-weight:500;font-size:44px;color:#fff;margin-bottom:10px;}
+  .top h1 em{font-style:italic;color:var(--sage);}
+  .top .updated{font-size:13px;color:#b8b5aa;margin-top:6px;}
+
+  .focus{background:var(--peach);border-radius:12px;padding:22px 26px;margin:-24px auto 0;position:relative;max-width:788px;}
+  .focus .flabel{font-size:11px;letter-spacing:0.2em;text-transform:uppercase;color:var(--sage-deep);font-weight:600;margin-bottom:6px;}
+  .focus .ftext{font-family:'Cormorant Garamond',serif;font-size:22px;color:var(--charcoal);font-style:italic;line-height:1.35;}
+
+  .barwrap{margin:34px auto 8px;}
+  .barwrap .btop{display:flex;justify-content:space-between;align-items:baseline;margin-bottom:10px;}
+  .barwrap .blabel{font-size:12px;letter-spacing:0.16em;text-transform:uppercase;color:var(--grey);font-weight:600;}
+  .barwrap .bpct{font-family:'Cormorant Garamond',serif;font-size:30px;font-weight:600;color:var(--charcoal);}
+  .bar{height:12px;background:var(--tan);border-radius:20px;overflow:hidden;}
+  .bar .fill{height:100%;background:var(--sage-deep);border-radius:20px;transition:width .6s ease;}
+
+  .legend{display:flex;gap:20px;flex-wrap:wrap;margin:22px 0 8px;font-size:12.5px;color:var(--grey);}
+  .legend span{display:flex;align-items:center;gap:7px;}
+  .legend .chip{width:10px;height:10px;border-radius:50%;display:inline-block;}
+
+  .milestone{margin:36px 0 0;}
+  .m-head{display:flex;align-items:center;gap:14px;margin-bottom:14px;}
+  .m-badge{width:40px;height:40px;border-radius:50%;background:var(--sage);color:#fff;display:flex;align-items:center;justify-content:center;font-family:'Cormorant Garamond',serif;font-size:20px;font-weight:600;flex-shrink:0;}
+  .m-title{font-family:'Cormorant Garamond',serif;font-size:25px;font-weight:600;}
+
+  .task{display:flex;align-items:center;gap:14px;background:#fff;border:1px solid var(--tan);border-radius:10px;padding:15px 20px;margin-bottom:10px;}
+  .status-dot{width:12px;height:12px;border-radius:50%;flex-shrink:0;}
+  .task-name{flex:1;font-size:15.5px;color:var(--charcoal);font-weight:400;}
+  .status-pill{font-size:11px;letter-spacing:0.08em;text-transform:uppercase;font-weight:600;padding:4px 12px;border-radius:20px;white-space:nowrap;}
+  .s-done{background:rgba(127,138,104,0.15);color:var(--done);}
+  .s-done .status-dot,.dot-done{background:var(--done);}
+  .s-progress{background:rgba(201,163,78,0.16);color:#a07f28;}
+  .dot-progress{background:var(--progress);}
+  .s-review{background:rgba(91,127,156,0.14);color:var(--review);}
+  .dot-review{background:var(--review);}
+  .s-todo{background:rgba(140,136,127,0.12);color:var(--grey);}
+  .dot-todo{background:var(--todo);}
+  .task.done .task-name{color:var(--grey);}
+
+  footer{padding:44px 0 56px;text-align:center;}
+  .foot-name{font-family:'Cormorant Garamond',serif;font-size:20px;color:var(--charcoal);margin-bottom:5px;}
+  .foot-contact{font-size:13px;color:var(--grey);}
+  .foot-contact a{color:var(--sage-deep);text-decoration:none;}
+</style>
+</head>
+<body>
+
+<div class="top">
+  <div class="wrap">
+    <div class="eyebrow">Project Dashboard</div>
+    <h1>almost™ <em>growth sprint</em></h1>
+    <div class="updated" id="updated"></div>
+  </div>
+</div>
+
+<div class="wrap">
+  <div class="focus">
+    <div class="flabel">Current Focus</div>
+    <div class="ftext" id="focus"></div>
+  </div>
+
+  <div class="barwrap">
+    <div class="btop">
+      <span class="blabel">Overall Progress</span>
+      <span class="bpct" id="pct">0%</span>
+    </div>
+    <div class="bar"><div class="fill" id="fill" style="width:0%"></div></div>
+  </div>
+
+  <div class="legend">
+    <span><span class="chip dot-done"></span>Complete</span>
+    <span><span class="chip dot-progress"></span>In progress</span>
+    <span><span class="chip dot-review"></span>In review</span>
+    <span><span class="chip dot-todo"></span>Not started</span>
+  </div>
+
+  <div id="board"></div>
+</div>
+
+<footer>
+  <div class="wrap">
+    <div class="foot-name">Que Blankenship</div>
+    <div class="foot-contact">Marketing &amp; Growth Strategy · <a href="mailto:que@queathena.com">que@queathena.com</a></div>
+  </div>
+</footer>
+
+<script>
+/* ============================================================
+   UPDATE THE PROJECT HERE. Change only the values below.
+   status options: "todo" | "progress" | "review" | "done"
+   To update: change a status word, edit lastUpdated / currentFocus,
+   save, and re-push to GitHub. The whole page updates itself.
+   ============================================================ */
+
+const lastUpdated  = "Not started yet";
+const currentFocus = "Kicking off — reviewing existing users, waitlist data, and current messaging for almost™.";
+
+const milestones = [
+  {
+    title: "Foundation",
+    tasks: [
+      { name: "Review current users, waitlist, app data, existing messaging & marketing content", status: "todo" },
+      { name: "Customer research — current or prospective almost™ users", status: "todo" },
+      { name: "Primary audience & sub-audiences identified and locked", status: "todo" },
+      { name: "Priority connection use case recommended (supported by research)", status: "todo" },
+      { name: "Competitive positioning analysis — market position almost™ can own", status: "todo" },
+      { name: "Live dashboard established and active", status: "todo" },
+      { name: "Milestone 1 checkpoint — review research, audience, use case & positioning", status: "todo" },
+    ]
+  },
+  {
+    title: "Message & Market",
+    tasks: [
+      { name: "Complete messaging framework for priority travelers and use cases", status: "todo" },
+      { name: "Nashville / BNA strategy to concentrate the right travelers and build density", status: "todo" },
+      { name: "Messaging and market strategy connected to Milestone 1 research and audience decisions", status: "todo" },
+      { name: "Milestone 2 checkpoint — review messaging framework and Nashville strategy", status: "todo" },
+    ]
+  },
+  {
+    title: "The Growth Plan",
+    tasks: [
+      { name: "Micro-influencer and UGC strategic direction: type of creators, content style, and profile characteristics to look for", status: "todo" },
+      { name: "Visibility and channel strategy — narrowed options with strategic rationale", status: "todo" },
+      { name: "Metrics woven into all strategies (downloads, profiles, trips, overlaps, connections, retention, referrals)", status: "todo" },
+      { name: "Next-steps deliverables list for continued engagement", status: "todo" },
+      { name: "Final strategy delivered in editable formats", status: "todo" },
+    ]
+  },
+];
+
+/* ---------- rendering (no need to edit below) ---------- */
+const labels = { todo:"Not started", progress:"In progress", review:"In review", done:"Complete" };
+
+document.getElementById("updated").textContent = "Last updated: " + lastUpdated;
+document.getElementById("focus").textContent = currentFocus;
+
+let total=0, done=0;
+const board = document.getElementById("board");
+
+milestones.forEach((m, i) => {
+  m.tasks.forEach(t => { total++; if(t.status==="done") done++; });
+  const wrap = document.createElement("div");
+  wrap.className = "milestone";
+  wrap.innerHTML = `<div class="m-head"><div class="m-badge">${i+1}</div><div class="m-title">${m.title}</div></div>`;
+  m.tasks.forEach(t => {
+    const row = document.createElement("div");
+    row.className = "task" + (t.status==="done" ? " done" : "");
+    row.innerHTML = `
+      <span class="status-dot dot-${t.status}"></span>
+      <span class="task-name">${t.name}</span>
+      <span class="status-pill s-${t.status}">${labels[t.status]}</span>`;
+    wrap.appendChild(row);
+  });
+  board.appendChild(wrap);
+});
+
+const pct = total ? Math.round((done/total)*100) : 0;
+document.getElementById("pct").textContent = pct + "%";
+setTimeout(()=>{ document.getElementById("fill").style.width = pct + "%"; }, 200);
+</script>
+
+</body>
+</html>
