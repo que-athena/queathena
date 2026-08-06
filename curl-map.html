@@ -186,6 +186,13 @@
     background: var(--cream-card);
     padding: 30px 32px;
   }
+  .playbook-item .pb-icon {
+    width: 34px; height: 34px;
+    margin-bottom: 16px;
+    color: var(--clay);
+    display: block;
+  }
+  .playbook-item .pb-icon svg { width: 100%; height: 100%; display: block; }
   .playbook-item h3 {
     font-size: 21px;
     font-style: italic;
@@ -237,11 +244,10 @@
   .proof-tile {
     aspect-ratio: 3 / 4;
     background: rgba(255,255,255,0.06);
-    border: 1px dashed rgba(243,237,225,0.3);
-    display: flex; align-items: center; justify-content: center;
-    text-align: center; padding: 16px;
-    font-size: 13px; color: rgba(243,237,225,0.6);
+    overflow: hidden;
+    border-radius: 2px;
   }
+  .proof-tile img { width: 100%; height: 100%; object-fit: cover; display: block; }
 
   /* FEELING */
   .feeling p { font-size: 20px; }
@@ -333,28 +339,22 @@
   <div class="wrap hero-grid">
     <div class="reveal in">
       <span class="eyebrow">Curly Hair Help for Moms of School-Age Kids</span>
-      <h1>You have every product. You still don't know how to do your daughter's <em>curly hair.</em></h1>
-      <p class="hero-sub">It was never you. No one ever taught you what your child's hair actually is, or how to care for it. I can. I've spent fifteen years doing exactly this, in person, for moms who love their kids and feel lost in the hair aisle.</p>
-      <a href="#book" class="btn">Book The Curl Map — $97</a>
+      <h1>You have every product and tool. You still don't know how to do your daughter's <em>curly hair.</em></h1>
+      <p class="hero-sub">It was never your fault. No one ever taught you what your child's hair needs actually are, or how to care for it. I can. I've spent fifteen years doing exactly this, in person, for moms who love their kids and feel lost in the hair aisle.</p>
+      <a href="https://calendar.app.google/UUUm7Vi4Kab7a9vc8" class="btn">Book The Curl Map — $97</a>
       <p class="btn-note">A 45-minute video call and a personalized hair playbook, made for your child. Delivered within 3 days.</p>
     </div>
 
-    <!-- SIGNATURE: head-map frame. Replace placeholder with a warm photo of a school-age child's curls (crown/back view works well). -->
+    <!-- SIGNATURE: head-map frame with real back-of-head photo, zone markers over actual hair -->
     <div class="headmap-frame reveal in">
-      <!-- IMAGE SLOT 1 — HERO -->
-      <div class="headmap-photo-placeholder">
-        IMAGE SLOT 1 · HERO<br>Warm, close photo of a curly-haired school-age child (back or 3/4 view of the head reads best with the zone map). Portrait orientation, 4:5.
-      </div>
-      <!-- To use a real image: delete the placeholder div above and uncomment:
-      <img class="headmap-photo" src="YOUR-IMAGE.jpg" alt="School-age child with curly, multi-textured hair">
-      -->
+      <img class="headmap-photo" src="images/hero-headmap.png" alt="Back view of a school-age child with curly, multi-textured hair showing different curl patterns from crown to nape">
       <div class="zones">
-        <span class="zone-dot" style="top:20%; left:46%;"></span>
-        <span class="zone-label" style="top:15%; left:54%;">Crown</span>
-        <span class="zone-dot" style="top:48%; left:24%;"></span>
-        <span class="zone-label" style="top:44%; left:5%;">Edges</span>
-        <span class="zone-dot" style="top:74%; left:52%;"></span>
-        <span class="zone-label" style="top:78%; left:56%;">Nape</span>
+        <span class="zone-dot" style="top:14%; left:50%;"></span>
+        <span class="zone-label" style="top:8%; left:56%;">Crown</span>
+        <span class="zone-dot" style="top:34%; left:20%;"></span>
+        <span class="zone-label" style="top:30%; left:2%;">Edges</span>
+        <span class="zone-dot" style="top:62%; left:50%;"></span>
+        <span class="zone-label" style="top:66%; left:56%;">Nape</span>
       </div>
     </div>
   </div>
@@ -365,10 +365,10 @@
   <div class="wrap narrow reveal">
     <span class="eyebrow">You know this feeling</span>
     <div style="height:24px;"></div>
-    <p>You've stood in the curly hair aisle holding three bottles, reading the back of every one, and still left unsure which was right for your daughter.</p>
+    <p>You've stood in the curly hair aisle holding three bottles, reading the back of every single one, and still left unsure which was right for your daughter.</p>
     <p>You've tried the routines. The ones from YouTube, the ones a friend swore by, the ones that worked beautifully on some other child and did nothing for yours. So now there's a cabinet full of leave-ins and curl creams and gels you bought with hope and quietly stopped reaching for.</p>
-    <p>And wash day. Wash day has somehow become the hardest hour of your week. The detangling that turns into tears. The style that falls apart before school. Some of those tears are hers. Some days, when she can't see, they're yours.</p>
-    <p>Under all of it sits the thing you've never said out loud. You've heard yourself call her hair "hard to manage," and then felt your stomach drop, because you wonder <span class="soft-quote">if she can tell this is who I feel even without saying it.</span></p>
+    <p>And wash day? If there is one, has somehow become the hardest hour of your week. The detangling that turns into tears. The style that falls apart before school. Some of those tears are hers. Some days, when she can't see, they're yours.</p>
+    <p>Under all of it sits the thing you've never said out loud. You've heard yourself call her hair "hard to manage," and then felt your stomach drop, because you wonder <span class="soft-quote">if she can tell this is how you feel even without saying it.</span></p>
     <p class="lead-line">Read this slowly. You are a good mother. You are a woman who wants to get this right for a child you love more than your own life, and no one ever handed you the knowledge to do it. That gap was never yours to carry alone. It's the reason I'm here.</p>
   </div>
 </section>
@@ -403,30 +403,37 @@
     </div>
     <div class="playbook-grid">
       <div class="playbook-item">
+        <span class="pb-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="10" r="7"/><circle cx="10" cy="8" r="1.5"/><path d="M12 17v4M9 21h6"/></svg></span>
         <h3>Her head map</h3>
         <p>Her actual textures, zone by zone, so you finally know what you're working with.</p>
       </div>
       <div class="playbook-item">
+        <span class="pb-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M8 3v3M16 3v3M4 8h16M6 8v11a2 2 0 002 2h8a2 2 0 002-2V8"/><path d="M9 13h6M9 17h4"/></svg></span>
         <h3>The everyday</h3>
         <p>Wash day, the in-between days, and the fast school-morning version that survives the day. Detangling without the tears.</p>
       </div>
       <div class="playbook-item">
+        <span class="pb-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="4"/><path d="M12 2v3M12 19v3M2 12h3M19 12h3M5 5l2 2M17 17l2 2M5 19l2-2M17 7l2-2"/></svg></span>
         <h3>Summer and sports</h3>
         <p>Chlorine, saltwater, sweat, sun. What to do before the pool and after, for the kid who never sits still.</p>
       </div>
       <div class="playbook-item">
+        <span class="pb-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M4 8l7-4 9 5-7 4z"/><path d="M4 8v8l7 4 9-5V8"/><path d="M11 12v8"/></svg></span>
         <h3>The handoff sheet</h3>
         <p>A simple page you can hand to grandma, the sitter, the sleepover parent. So her hair is cared for even when you're not there.</p>
       </div>
       <div class="playbook-item">
+        <span class="pb-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3v6M12 21v-4"/><path d="M7 9a5 5 0 0110 0c0 3-2.5 4-5 4"/><circle cx="12" cy="17" r="1"/></svg></span>
         <h3>Growing into it</h3>
         <p>How to start handing her the steps she's ready for, and how to talk about her hair so she grows up loving it.</p>
       </div>
       <div class="playbook-item">
+        <span class="pb-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M12 21s-7-4.5-9-9a4.5 4.5 0 018-3 4.5 4.5 0 018 3c-2 4.5-9 9-9 9z"/></svg></span>
         <h3>When to get help</h3>
         <p>What's normal, what's not, and how to find a stylist for her: what to ask, what to pay, and how to know you're in the wrong chair.</p>
       </div>
       <div class="playbook-item">
+        <span class="pb-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 8h14l-1 12H6z"/><path d="M9 8V6a3 3 0 016 0v2"/><path d="M9 12l2 2 4-4"/></svg></span>
         <h3>Your product list</h3>
         <p>Exactly what to buy, and what to skip.</p>
       </div>
@@ -441,12 +448,9 @@
 <!-- ============ WHO I AM ============ -->
 <section>
   <div class="wrap who-grid reveal">
-    <!-- IMAGE SLOT 2 — PORTRAIT -->
+    <!-- Portrait -->
     <div class="who-photo">
-      <div class="who-photo-placeholder">
-        IMAGE SLOT 2 · YOUR PORTRAIT<br>Warm, real photo of you, on camera, looking at the lens. This is the credibility. Portrait, 4:5.
-      </div>
-      <!-- <img src="YOUR-PORTRAIT.jpg" alt="Que, licensed stylist with 15 years of experience in every hair texture"> -->
+      <img src="images/portrait.jpg" alt="Que, licensed stylist with 15 years of experience across every hair texture">
     </div>
     <div class="who-body">
       <span class="eyebrow">Who I Am</span>
@@ -466,13 +470,12 @@
       <span class="eyebrow">Fifteen Years, Every Texture</span>
       <h2 class="section-header" style="margin-top:18px;">Real hair. Real range.</h2>
     </div>
-    <!-- IMAGE SLOT 3 — PROOF (your commercial-use editorial work) -->
     <div class="proof-band">
-      <div class="proof-tile">IMAGE SLOT 3A<br>Editorial / client work — curl close-up</div>
-      <div class="proof-tile">IMAGE SLOT 3B<br>Editorial / client work — different texture</div>
-      <div class="proof-tile">IMAGE SLOT 3C<br>Editorial / client work — styling result</div>
+      <div class="proof-tile"><img src="images/proof-1.jpg" alt="Curly hair styling work by the stylist"></div>
+      <div class="proof-tile"><img src="images/proof-2.jpg" alt="Range of natural hair textures styled by the stylist"></div>
+      <div class="proof-tile"><img src="images/proof-3.jpg" alt="Editorial natural hair work by the stylist"></div>
     </div>
-    <p style="text-align:center; margin-top:28px; color:rgba(243,237,225,0.7); font-size:15px;">Your own editorial and client photography goes here. Use images you have commercial rights to. Curl and texture close-ups read stronger than posed faces.</p>
+    <p style="text-align:center; margin-top:28px; color:rgba(243,237,225,0.7); font-size:15px;">Fifteen years in the chair, across every texture there is.</p>
   </div>
 </section>
 
@@ -495,7 +498,7 @@
       <span class="eyebrow">The Curl Map</span>
       <div class="price">$97</div>
       <p class="offer-desc">A 45-minute video consultation and a personalized playbook, made for your child, delivered within 3 days.</p>
-      <a href="#" class="btn">Book The Curl Map</a>
+      <a href="https://calendar.app.google/UUUm7Vi4Kab7a9vc8" class="btn">Book The Curl Map</a>
       <p class="btn-note">Photos and a short intake come first, so we make the most of our time together.</p>
     </div>
   </div>
@@ -532,7 +535,7 @@
 <section class="section-dark closing">
   <div class="wrap reveal">
     <h2>She's going to grow up with this hair. Let's make sure she grows up <em>loving it.</em></h2>
-    <a href="#book" class="btn">Book The Curl Map — $97</a>
+    <a href="https://calendar.app.google/UUUm7Vi4Kab7a9vc8" class="btn">Book The Curl Map — $97</a>
   </div>
 </section>
 
