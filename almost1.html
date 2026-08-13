@@ -1,0 +1,523 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="color-scheme" content="light only">
+<title>almost™ — Milestone 1: Foundation</title>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400;1,500&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --peach:#e6decd; --charcoal:#212118; --tan:#e4e2dd; --lighttan:#f2f1ee;
+    --sage:#b6beaa; --sage-deep:#7f8a68; --ink-soft:#45423a; --grey:#8a887f;
+    --warn:#a86a3d;
+    color-scheme:light only;
+  }
+  *{margin:0;padding:0;box-sizing:border-box;}
+  html,body{color-scheme:light only;}
+  body{background:var(--lighttan);color:var(--charcoal);font-family:'Inter',sans-serif;font-weight:300;line-height:1.7;-webkit-font-smoothing:antialiased;}
+  .wrap{max-width:900px;margin:0 auto;padding:0 32px;}
+
+  .cover{background:var(--charcoal);color:var(--lighttan);padding:96px 0 88px;position:relative;overflow:hidden;}
+  .cover::after{content:'';position:absolute;left:0;right:0;bottom:0;height:1px;background:linear-gradient(to right,transparent,var(--sage),transparent);}
+  .cover .eyebrow{font-size:12px;letter-spacing:0.32em;text-transform:uppercase;color:var(--sage);margin-bottom:26px;}
+  .cover h1{font-family:'Cormorant Garamond',serif;font-weight:500;font-size:clamp(44px,7vw,72px);line-height:1.04;color:#fff;margin-bottom:8px;}
+  .cover h1 .m{display:block;font-size:clamp(20px,3vw,28px);color:var(--sage);font-style:italic;font-weight:400;margin-top:12px;}
+  .cover .sub{font-size:17px;color:#cfccc1;max-width:580px;margin-top:26px;}
+  .cover .meta{margin-top:44px;font-size:13px;color:#9d9a90;letter-spacing:0.02em;}
+  .cover .meta strong{color:var(--tan);font-weight:500;}
+
+  .notestrip{background:var(--peach);padding:26px 0;}
+  .notestrip p{max-width:760px;margin:0;font-family:'Cormorant Garamond',serif;font-size:19px;font-style:italic;line-height:1.5;color:var(--charcoal);}
+
+  .sec{padding:70px 0;border-bottom:1px solid var(--tan);}
+  .sec:last-of-type{border-bottom:none;}
+  .snum{display:flex;align-items:center;gap:16px;margin-bottom:20px;}
+  .snum .n{font-family:'Cormorant Garamond',serif;font-size:26px;font-weight:600;color:var(--sage-deep);line-height:1;}
+  .snum .k{font-size:11px;letter-spacing:0.26em;text-transform:uppercase;color:var(--sage-deep);font-weight:600;}
+  .snum::after{content:'';flex:1;height:1px;background:var(--tan);}
+  h2{font-family:'Cormorant Garamond',serif;font-weight:500;font-size:clamp(30px,4vw,40px);line-height:1.14;margin-bottom:22px;color:var(--charcoal);}
+  h2 em{font-style:italic;color:var(--sage-deep);}
+  .lead{font-size:18px;color:var(--ink-soft);margin-bottom:14px;max-width:720px;}
+  p.body{font-size:16px;color:var(--ink-soft);margin-bottom:14px;max-width:720px;}
+  .body strong{color:var(--charcoal);font-weight:600;}
+
+  .decision{background:var(--charcoal);color:var(--lighttan);border-radius:14px;padding:28px 32px;margin:26px 0;}
+  .decision .dl{font-size:11px;letter-spacing:0.22em;text-transform:uppercase;color:var(--sage);font-weight:600;margin-bottom:10px;}
+  .decision .dt{font-family:'Cormorant Garamond',serif;font-size:24px;line-height:1.35;color:#fff;font-style:italic;}
+  .decision .dt strong{font-style:normal;font-weight:600;color:var(--sage);}
+
+  .call{background:var(--peach);border-radius:12px;padding:22px 26px;margin:22px 0;}
+  .call .cl{font-size:11px;letter-spacing:0.2em;text-transform:uppercase;color:var(--sage-deep);font-weight:600;margin-bottom:8px;}
+  .call p{font-size:15.5px;color:var(--charcoal);margin:0;max-width:none;}
+  .call.warn{background:#f0e4d8;}
+  .call.warn .cl{color:var(--warn);}
+
+  .road{border:1px dashed var(--sage-deep);border-radius:12px;padding:22px 26px;margin:22px 0;background:rgba(182,190,170,0.08);}
+  .road .rl{font-size:11px;letter-spacing:0.2em;text-transform:uppercase;color:var(--sage-deep);font-weight:600;margin-bottom:8px;display:flex;align-items:center;gap:8px;}
+  .road .rl::before{content:'';width:14px;height:1px;background:var(--sage-deep);}
+  .road p{font-size:15.5px;color:var(--ink-soft);margin:0;max-width:none;}
+  .road p strong{color:var(--charcoal);font-weight:600;}
+
+  .quote{border-left:3px solid var(--sage);padding:6px 0 6px 24px;margin:22px 0;max-width:720px;}
+  .quote p{font-family:'Cormorant Garamond',serif;font-style:italic;font-size:20px;line-height:1.5;color:var(--charcoal);margin:0 0 8px;}
+  .quote .who{font-size:13px;letter-spacing:0.04em;color:var(--grey);text-transform:uppercase;}
+
+  .stats{display:grid;grid-template-columns:repeat(4,1fr);gap:1px;background:var(--tan);border:1px solid var(--tan);border-radius:12px;overflow:hidden;margin:26px 0;}
+  .stat{background:#fff;padding:22px 18px;text-align:center;}
+  .stat .num{font-family:'Cormorant Garamond',serif;font-size:38px;font-weight:600;color:var(--charcoal);line-height:1;}
+  .stat .lab{font-size:12px;color:var(--grey);margin-top:8px;line-height:1.35;}
+  .stat.red .num{color:var(--warn);}
+
+  .ctable{width:100%;border-collapse:collapse;margin:24px 0;font-size:13.5px;border-radius:12px;overflow:hidden;border:1px solid var(--tan);}
+  .ctable th,.ctable td{padding:13px 14px;text-align:left;border-bottom:1px solid var(--tan);vertical-align:top;}
+  .ctable th{background:var(--charcoal);color:var(--lighttan);font-weight:500;font-size:11px;letter-spacing:0.06em;text-transform:uppercase;}
+  .ctable td{background:#fff;color:var(--ink-soft);}
+  .ctable tr:last-child td{border-bottom:none;}
+  .ctable .name{font-weight:600;color:var(--charcoal);white-space:nowrap;}
+  .ctable tr.almost td{background:var(--peach);color:var(--charcoal);font-weight:500;}
+  .ctable tr.almost .name{color:var(--charcoal);}
+
+  .ba{display:grid;grid-template-columns:1fr 1fr;gap:16px;margin:26px 0;}
+  .ba .col{border-radius:12px;padding:24px;}
+  .ba .now{background:#fff;border:1px solid var(--tan);}
+  .ba .next{background:var(--charcoal);color:var(--lighttan);}
+  .ba .bh{font-size:11px;letter-spacing:0.18em;text-transform:uppercase;font-weight:600;margin-bottom:14px;}
+  .ba .now .bh{color:var(--grey);}
+  .ba .next .bh{color:var(--sage);}
+  .ba ul{list-style:none;margin:0;padding:0;}
+  .ba li{font-size:14.5px;line-height:1.5;padding:7px 0;}
+  .ba .now li{color:var(--ink-soft);border-bottom:1px solid rgba(0,0,0,0.06);}
+  .ba .next li{color:#e4e2dd;border-bottom:1px solid rgba(255,255,255,0.1);}
+  .ba li:last-child{border-bottom:none;}
+  .ba li strong{font-weight:600;}
+  .ba .now li strong{color:var(--charcoal);}
+  .ba .next li strong{color:#fff;}
+  .ba-arrow{text-align:center;font-family:'Cormorant Garamond',serif;font-style:italic;color:var(--sage-deep);font-size:15px;margin:-6px 0 8px;}
+
+  .formal{border:1px solid var(--sage-deep);border-radius:12px;margin:26px 0;overflow:hidden;}
+  .formal .fh{background:var(--sage-deep);color:#fff;font-size:11px;letter-spacing:0.2em;text-transform:uppercase;font-weight:600;padding:9px 24px;}
+  .formal .fb{padding:24px 26px;font-size:15.5px;line-height:1.7;color:var(--ink-soft);}
+  .formal .fb b{color:var(--charcoal);font-weight:600;}
+  .formal .fb .lbl{color:var(--sage-deep);font-weight:600;font-style:italic;}
+
+  .ladder{margin:24px 0;}
+  .rung{display:flex;gap:18px;padding:16px 0;border-bottom:1px solid var(--tan);align-items:flex-start;}
+  .rung:last-child{border-bottom:none;}
+  .rung .badge{font-family:'Cormorant Garamond',serif;font-size:20px;font-weight:600;color:var(--sage-deep);flex-shrink:0;width:26px;line-height:1.3;}
+  .rung .rb .rt{font-size:16px;font-weight:600;color:var(--charcoal);margin-bottom:3px;}
+  .rung .rb .rd{font-size:14.5px;color:var(--ink-soft);}
+  .tag{display:inline-block;font-size:10.5px;letter-spacing:0.12em;text-transform:uppercase;font-weight:600;padding:2px 8px;border-radius:12px;margin-left:8px;vertical-align:middle;}
+  .tag-now{background:rgba(127,138,104,0.16);color:var(--sage-deep);}
+  .tag-later{background:rgba(168,106,61,0.14);color:var(--warn);}
+
+  .crossing{display:flex;align-items:center;justify-content:center;padding:8px 0 2px;}
+  .crossing svg{width:120px;height:34px;opacity:0.7;}
+
+  /* USE CASE CARDS */
+  .cases{display:flex;flex-direction:column;gap:14px;margin:26px 0;}
+  .case{background:#fff;border:1px solid var(--tan);border-radius:12px;padding:22px 24px;border-left:3px solid var(--sage);}
+  .case .ch{display:flex;align-items:baseline;gap:12px;margin-bottom:10px;flex-wrap:wrap;}
+  .case .cnum{font-family:'Cormorant Garamond',serif;font-size:22px;font-weight:600;color:var(--sage-deep);line-height:1;}
+  .case .cname{font-size:16.5px;font-weight:600;color:var(--charcoal);}
+  .case .cstatus{font-family:'Inter',sans-serif;font-size:12.5px;font-weight:500;color:var(--sage-deep);background:var(--peach);padding:3px 10px;border-radius:20px;white-space:nowrap;}
+  .case p{font-size:15px;color:var(--ink-soft);margin:0;max-width:none;}
+  .case p strong{color:var(--charcoal);font-weight:600;}
+
+  /* IN-APP TRIP EXAMPLE */
+  .appex{display:flex;flex-wrap:wrap;gap:14px;margin:22px 0;}
+  .trip{background:#fff;border:1px solid var(--tan);border-radius:12px;padding:16px 20px;min-width:230px;flex:1;}
+  .trip .tl{font-size:10.5px;letter-spacing:0.16em;text-transform:uppercase;color:var(--grey);font-weight:600;margin-bottom:8px;}
+  .trip .tv{font-family:'Inter',sans-serif;font-size:16px;font-weight:500;color:var(--charcoal);}
+  .trip .tv .dot{color:var(--sage-deep);margin:0 6px;}
+  .trip.old{opacity:0.85;}
+  .trip.new{border:2px solid var(--sage-deep);background:var(--peach);}
+  .appex .arrow{align-self:center;font-family:'Cormorant Garamond',serif;font-style:italic;color:var(--sage-deep);font-size:15px;flex:0 0 auto;}
+
+  .steps{margin:20px 0;}
+  .step{display:flex;gap:16px;padding:14px 0;border-bottom:1px solid var(--tan);}
+  .step:last-child{border-bottom:none;}
+  .step .sd{width:8px;height:8px;border-radius:50%;background:var(--sage-deep);flex-shrink:0;margin-top:9px;}
+  .step .st{font-size:15.5px;color:var(--ink-soft);}
+  .step .st strong{color:var(--charcoal);font-weight:600;}
+
+  footer{background:var(--charcoal);color:var(--lighttan);padding:56px 0;text-align:center;}
+  footer .fn{font-family:'Cormorant Garamond',serif;font-size:24px;color:#fff;margin-bottom:6px;}
+  footer .fc{font-size:13px;color:#9d9a90;}
+
+  @media(max-width:720px){
+    .wrap{padding:0 22px;}
+    .cover{padding:64px 0 56px;}
+    .sec{padding:48px 0;}
+    .stats{grid-template-columns:repeat(2,1fr);}
+    .ba{grid-template-columns:1fr;}
+    .ctable{font-size:12.5px;}
+    .ctable th,.ctable td{padding:10px 9px;}
+  }
+</style>
+</head>
+<body>
+
+<div class="cover">
+  <div class="wrap">
+    <div class="eyebrow">Growth Sprint · Foundation</div>
+    <h1>almost™<span class="m">Milestone 1: Foundation</span></h1>
+    <p class="sub">What the research found, who almost™ is really for, and the position it can own — plus the one move that matters most right now.</p>
+    <div class="meta"><strong>Prepared by Que Blankenship</strong> · Marketing &amp; Growth Strategy<br>Research, Audience &amp; Positioning</div>
+  </div>
+</div>
+
+<div class="notestrip">
+  <div class="wrap">
+    <p>A few of these answers will feel obvious once you read them. They weren't obvious getting here. Each one is what survived after testing the options that didn't work — and I've kept the turns in, not just the destination, so you can see how we know these are right.</p>
+  </div>
+</div>
+
+<div class="sec">
+  <div class="wrap">
+    <div class="snum"><span class="n">01</span><span class="k">What this milestone set out to do</span></div>
+    <h2>Getting to a real answer — <em>not a guess.</em></h2>
+    <p class="lead">Milestone 1 had one job: figure out who almost™ is really for and what makes it different, based on evidence — not on what we assume or hope.</p>
+    <p class="body">To do that honestly, I looked at three things and lined them up against each other:</p>
+    <div class="ladder">
+      <div class="rung"><span class="badge">1</span><div class="rb"><div class="rt">What you built</div><div class="rd">The story almost™ came from, the app as it works today, and the vision behind it.</div></div></div>
+      <div class="rung"><span class="badge">2</span><div class="rb"><div class="rt">What the market says</div><div class="rd">A close look at the other apps trying to do something similar — where they win, and where they leave a door open.</div></div></div>
+      <div class="rung"><span class="badge">3</span><div class="rb"><div class="rt">What your people want</div><div class="rd">A survey to the waitlist and the real feedback early users have already sent in.</div></div></div>
+    </div>
+    <p class="body">When all three point the same way, we can trust the answer. Where they disagree, that's where the real decisions get made. This document walks through what each one showed — and then makes the calls.</p>
+  </div>
+</div>
+
+<div class="sec">
+  <div class="wrap">
+    <div class="snum"><span class="n">02</span><span class="k">Where almost™ is right now</span></div>
+    <h2>The honest starting point.</h2>
+    <p class="lead">almost™ is a live MVP, and it's still very early. Here are the real numbers, side by side, so we're building on the truth and not on a hopeful version of it.</p>
+
+    <div class="stats">
+      <div class="stat"><div class="num">~100</div><div class="lab">total installs across both app stores</div></div>
+      <div class="stat"><div class="num">~40</div><div class="lab">people who actually opened it</div></div>
+      <div class="stat red"><div class="num">7</div><div class="lab">still using it after one week (Android)</div></div>
+      <div class="stat"><div class="num">300–400</div><div class="lab">people on the waitlist</div></div>
+    </div>
+
+    <p class="body">One thing to be clear-eyed about: that waitlist of 300–400 (the same group the "400+ founding travelers" line refers to) has already been emailed for the founding offer and the current promo. <strong>It's been well used.</strong> So we can't count on it as a fresh, eager crowd waiting to be switched on — and a confirmed founding group may be small. That's not a problem to hide. It's the real starting line, and naming it is what lets us plan from solid ground.</p>
+
+    <p class="body">This is not a failure. This is exactly where a brand-new app of this kind sits before it finds its footing. But the numbers tell us something important, and we have to say it plainly:</p>
+
+    <div class="call warn">
+      <div class="cl">The real problem, named</div>
+      <p>The social posts, the waitlist ads, and the launch so far have brought people <strong>to</strong> almost™ — but they haven't solved the one thing that makes an app like this work: getting enough of the right people in the same place at the same time. Without that, there's no one to match with, and people leave. That's why only a handful stayed after a week.</p>
+    </div>
+
+    <p class="body">Here's the encouraging part. <strong>Every app like this hit this exact wall.</strong> Tinder launched on one college campus. Hinge started in one city. Bumble did the same. None of them chased big install numbers first — they packed the right people into <strong>one place</strong> until real connections started happening, then spread from there. almost™ is standing where the giants once stood. The move now is the move they made.</p>
+
+    <div class="call">
+      <div class="cl">Why this matters for your goal</div>
+      <p>Your goal is 1,000 users, matches, and repeat users. Here's the trap: <strong>1,000 users spread across 200 airports is worse than 200 who all move through the same one.</strong> The scattered 1,000 never match — the app feels empty and people leave. The focused 200 match, come back, and give you real proof. So the smart order is: build a crowd in one place first, get matches and repeats happening, <em>then</em> grow the number. Same goal — the right way to reach it.</p>
+    </div>
+  </div>
+</div>
+
+<div class="wrap"><div class="crossing">
+  <svg viewBox="0 0 120 34" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+    <path d="M2 4 L60 17 L118 4" stroke="#7f8a68" stroke-width="1.2"/>
+    <path d="M2 30 L60 17 L118 30" stroke="#b6beaa" stroke-width="1.2"/>
+    <circle cx="60" cy="17" r="3" fill="#7f8a68"/>
+  </svg>
+</div></div>
+
+<div class="sec">
+  <div class="wrap">
+    <div class="snum"><span class="n">03</span><span class="k">What the market says</span></div>
+    <h2>The other apps — and the <em>door they left open.</em></h2>
+    <p class="lead">I looked closely at the apps almost™ is up against — what kind of connection each one is for, and where each one lives. The good news: not one of them is standing where almost™ can stand.</p>
+
+    <table class="ctable">
+      <tr><th>App</th><th>Connection type</th><th>Where it lives</th><th>Where it falls short</th></tr>
+      <tr><td class="name">Happn</td><td>Romance only</td><td>Busy cities</td><td>Large (100M+ users) but built on the past — "you already crossed paths" — and on tracking your location. It can't come to the airport without becoming a different app.</td></tr>
+      <tr><td class="name">JetLatch</td><td>Dating-led</td><td>Airports</td><td>Pre-traction, like almost™. Planted its flag on <strong>dating</strong> and copied the swipe apps — the exact thing almost™ says it isn't.</td></tr>
+      <tr><td class="name">Seatlr</td><td>Group chat</td><td>Destinations</td><td>Pre-traction. A crowded room for everyone flying to a city — not a real one-to-one meeting. Can't create that "just us two" moment.</td></tr>
+      <tr class="almost"><td class="name">almost™</td><td>All three, on purpose</td><td>Airports &amp; travel</td><td>Stands in the open spot: intentional, before you arrive, for any kind of connection, without tracking you.</td></tr>
+    </table>
+
+    <div class="call">
+      <div class="cl">The key finding</div>
+      <p>None of them can move into almost™'s spot without breaking their own app. Happn can't come to the airport without abandoning tracking. JetLatch chose "airport dating" and the swipe grammar almost™ rejects. Seatlr is a group chat by design. And the three real app competitors are all still pre-traction — <strong>nobody has won this yet.</strong> It's an open race, and it's about being the clearest, not the biggest.</p>
+    </div>
+
+    <div class="road">
+      <div class="rl">The turn we didn't take</div>
+      <p>The obvious move — given almost™'s romantic origin — was to lead as a <strong>dating app for travelers</strong>. We looked hard at it and turned away. JetLatch already owns that lane and built it on swiping, which almost™ isn't. Leading with romance would walk almost™ straight into a fight on someone else's ground, as the smaller, later app. The harder, open door is the one worth taking.</p>
+    </div>
+
+    <div class="decision">
+      <div class="dl">What this points to</div>
+      <div class="dt">almost™ should <strong>not</strong> lead as a dating app. The open, winnable spot is the one nobody's taken: <strong>the intentional connection app for travelers</strong> — for any kind of real connection while you travel.</div>
+    </div>
+  </div>
+</div>
+
+<div class="sec">
+  <div class="wrap">
+    <div class="snum"><span class="n">04</span><span class="k">What your people say</span></div>
+    <h2>Straight from early <em>users.</em></h2>
+    <p class="lead">A survey went out to the waitlist, and a few real users have already written in. It's early and it's a small group — so I'm treating this as a strong hint, not the final word. But the hints are clear, and they line up with everything above.</p>
+
+    <p class="body">First, an honest note about the list itself:</p>
+    <div class="call warn">
+      <div class="cl">Read the waitlist carefully</div>
+      <p>Your waitlist leans toward professionals, entrepreneurs, and travel creators. That's not a random slice of the world — <strong>it's who your ads and posts have been speaking to.</strong> So the list tells us a lot about where to <em>start</em>, and less about who almost™ is for in the end. We use it to pick our first crowd, and we're careful not to let it decide the whole picture.</p>
+    </div>
+
+    <p class="body">Now the part that matters — what real people said in their own words:</p>
+
+    <div class="quote">
+      <p>"It would be fun to just meet people with the same travel mindset as me."</p>
+      <div class="who">— William, travels solo, 10–12 trips a year</div>
+    </div>
+    <p class="body">When I asked William if he wanted casual airport run-ins or planned meetups, he said <strong>"probably both."</strong> He's not picking a lane. He just wants his trips to feel less lonely and more open to good people. And when I asked if he'd seen anything like almost™ before, the closest he could name was <strong>Strava's "flyover"</strong> — a running app that shows you, after the fact, who passed near you on a run. That's telling: the nearest thing that exists is a fitness feature. <strong>Nothing is built for this.</strong> That's the gap almost™ fills.</p>
+
+    <div class="quote">
+      <p>"On tinder/hinge I have to sift through locals to find travelers, and travel apps are focused away from dating. There's a huge gap."</p>
+      <div class="who">— early user, frequent traveler</div>
+    </div>
+    <p class="body">A real user describing <strong>exactly the gap</strong> — without being asked. He also wants it to work beyond the airport — "who's in this city right now," trains, buses. That points straight to one small, powerful change we'll get to in the product section.</p>
+
+    <div class="call">
+      <div class="cl">The pattern</div>
+      <p>Different people, same message: they don't want one type of connection. They want to <strong>meet good people while they travel</strong> — open to wherever it leads. Testing feedback also flagged useful fixes to note for later: managing several trips in one place, alerts when someone overlaps with you, and profile verification for trust.</p>
+    </div>
+  </div>
+</div>
+
+<div class="wrap"><div class="crossing">
+  <svg viewBox="0 0 120 34" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+    <path d="M2 4 L60 17 L118 4" stroke="#7f8a68" stroke-width="1.2"/>
+    <path d="M2 30 L60 17 L118 30" stroke="#b6beaa" stroke-width="1.2"/>
+    <circle cx="60" cy="17" r="3" fill="#7f8a68"/>
+  </svg>
+</div></div>
+
+<div class="sec">
+  <div class="wrap">
+    <div class="snum"><span class="n">05</span><span class="k">The decision — who almost™ is for</span></div>
+    <h2>The open traveler.</h2>
+    <p class="lead">Here's the big shift. almost™'s user isn't defined by <em>what</em> they're looking for — professional, friendship, or romance. It's defined by <em>how they travel</em>: open to meeting someone good along the way.</p>
+
+    <div class="decision">
+      <div class="dl">The primary audience</div>
+      <div class="dt">The <strong>open traveler</strong> — anyone on a trip who'd welcome a real connection instead of passing through alone. Professional, friendship, and romance aren't three different users. They're three things that can <em>happen</em> when an open traveler meets the right person.</div>
+    </div>
+
+    <div class="road">
+      <div class="rl">The turn we didn't take</div>
+      <p>We almost narrowed this to <strong>solo travelers who feel lonely</strong> — one early reply pointed there. But it broke fast: it leaves out couples and families who'd love to meet others, and plenty of solo travelers actually want quiet. "Lonely solo traveler" was too small. <strong>"Open traveler" holds up</strong> — it fits anyone, on the trips when they're open, and lets the app sit quiet on the trips when they're not.</p>
+    </div>
+
+    <p class="body">This one idea quietly fixes a lot. It ends the "dating or networking?" tug-of-war — you don't have to choose. It's the same way you already describe almost™: <em>"a way to meet people when you travel."</em> This just gives that a sharper edge. And it helps the empty-app problem, because "I'd welcome meeting someone good" is a much easier yes than "I want to date" — more people saying yes means more matches, sooner.</p>
+
+    <div class="call">
+      <div class="cl">Why professional networking comes up first — and why that's fine</div>
+      <p>Early users keep asking for a professional focus. Here's the real reason: <strong>light professional networking feels safe.</strong> "I saw you're headed to the same conference" costs nothing to send. Note it's the <em>light</em> version that's easy — deliberately hunting for a business partner or investor is just as heavy and guarded as looking for a romantic partner. So easy professional connection is the <em>front door</em>. Once people are connecting, friendships and romance follow naturally. Lead with the easy door. Keep the rest open.</p>
+    </div>
+
+    <p class="body">One honest limit: <strong>the app today is built for one person at a time.</strong> It can't yet handle "we're a couple who'd like to meet another couple," or families meeting families. Those are real audiences worth having — but they need a small change to the app first. So couples and families are <strong>Phase 2</strong>, and we build the launch around what the MVP can do today.</p>
+
+    <div class="ladder">
+      <div class="rung"><span class="badge">1</span><div class="rb"><div class="rt">Solo professional travelers<span class="tag tag-now">Start here</span></div><div class="rd">Fly for work, have downtime, easiest to reach and gather. This is our first crowd.</div></div></div>
+      <div class="rung"><span class="badge">2</span><div class="rb"><div class="rt">Frequent solo &amp; remote travelers<span class="tag tag-now">Start here</span></div><div class="rd">Nomads and often-flyers. The most naturally open group — and the loudest in the feedback.</div></div></div>
+      <div class="rung"><span class="badge">3</span><div class="rb"><div class="rt">Open couples<span class="tag tag-later">Phase 2</span></div><div class="rd">Couples who'd love to meet other couples. Needs a small app change first.</div></div></div>
+      <div class="rung"><span class="badge">4</span><div class="rb"><div class="rt">Open families<span class="tag tag-later">Phase 2</span></div><div class="rd">Families meeting families on a trip. The stickiest group once it works — but the biggest build.</div></div></div>
+    </div>
+  </div>
+</div>
+
+<div class="sec">
+  <div class="wrap">
+    <div class="snum"><span class="n">06</span><span class="k">The decision — the position almost™ owns</span></div>
+    <h2>The name says <em>everything.</em></h2>
+    <p class="lead">almost™ isn't just a name. It's the whole point. It names what you lose when you don't reach out — you <em>almost</em> met them.</p>
+
+    <p class="body">Here's the shift, side by side — so it's clear this is a real change of direction, not just new words:</p>
+
+    <div class="ba">
+      <div class="col now">
+        <div class="bh">Where almost™ stands now</div>
+        <ul>
+          <li>Leads with the <strong>romantic</strong> angle</li>
+          <li>Airports only</li>
+          <li>"For the ones you almost met" — about the <strong>past</strong></li>
+          <li>Reads like it might be a <strong>dating app</strong></li>
+          <li>Speaks mostly to solo travelers</li>
+        </ul>
+      </div>
+      <div class="col next">
+        <div class="bh">Where almost™ moves to</div>
+        <ul>
+          <li>Leads with the easy <strong>professional</strong> door</li>
+          <li>Airports now, more travel later</li>
+          <li>"You're about to cross paths" — about what's <strong>ahead</strong></li>
+          <li>The <strong>intentional connection app</strong> for travelers</li>
+          <li>Speaks to all open travelers — romance kept as the soul</li>
+        </ul>
+      </div>
+    </div>
+    <div class="ba-arrow">— the same almost™, aimed at the door people actually walk through first —</div>
+
+    <div class="decision">
+      <div class="dl">The position, in one breath</div>
+      <div class="dt">almost™ is the way to meet the people you're <strong>already going to cross paths with</strong> when you travel — before you arrive, and before the moment passes.</div>
+    </div>
+
+    <p class="body">Every other app sells you the connection. almost™ names the cost of missing it:</p>
+    <div class="quote">
+      <p>You almost met your next business partner. You almost met a real friend. You almost met the person who'd change your life. Almost — because you were in the same place at the same time, and no one had a way to know.</p>
+      <div class="who">The feeling almost™ owns</div>
+    </div>
+
+    <p class="body">This flips the whole mood. Happn leaves you with regret — "you missed your chance, it's over." almost™ puts the chance <strong>right in front of you, while there's still time to take it.</strong> It fits your own line, too — <em>airports are becoming the new downtown.</em> A place where anything could happen, if someone makes the move.</p>
+
+    <div class="call">
+      <div class="cl">Your romantic story is safe — it just isn't the headline</div>
+      <p>almost™ was born from a romantic near-miss, and that stays the soul of the brand. We're not throwing it away. We're protecting it as the rarest, most magical thing almost™ can do — <strong>and we lead with the easy, everyday reason people open the app,</strong> because that's what builds the crowd that makes the magic even possible. Lead with the door. Keep the soul.</p>
+    </div>
+
+    <div class="formal">
+      <div class="fh">The full positioning statement — for the record</div>
+      <div class="fb">
+        <span class="lbl">For</span> people who travel and believe the best connections come from being in the same place at the same time — but who are done with swiping, done with being tracked, and done leaving those moments to chance —<br><br>
+        <span class="lbl">almost™ is</span> the intentional connection app that shows you who you're about to cross paths with, so you can choose to meet — for <b>business, for friendship, or for something more</b> — before you land.<br><br>
+        <span class="lbl">Unlike</span> Happn (accidental, past-tense, romance-only, built on location tracking), JetLatch (an airport dating app built on swiping), and Seatlr (a group chat room for a whole city),<br><br>
+        <span class="lbl">almost™ owns</span> the deliberate, one-to-one moment of overlap — planned, not stumbled into; never tracked; open to every kind of connection worth making while you travel.
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="sec">
+  <div class="wrap">
+    <div class="snum"><span class="n">·</span><span class="k">The position, in real life</span></div>
+    <h2>Three people. <em>One app.</em></h2>
+    <p class="lead">Here's what the new positioning actually looks like in someone's hands — three real ways people would use almost™, all under one simple idea: see who you're going to cross paths with, and choose to connect.</p>
+
+    <div class="cases">
+      <div class="case">
+        <div class="ch"><span class="cnum">1</span><span class="cname">The airport traveler</span><span class="cstatus">BNA · 08/12 – 08/18</span></div>
+        <p>She's flying through Nashville next week and adds her trip. almost™ shows her who else will be moving through around the same time — someone heading to the same conference, maybe a fellow traveler with a long layover. She sends a note before she even lands. <strong>This is what the app does today.</strong></p>
+      </div>
+      <div class="case">
+        <div class="ch"><span class="cnum">2</span><span class="cname">The destination traveler</span><span class="cstatus">Nashville (BNA) · 08/12 – 08/18</span></div>
+        <p>He's spending a week in Nashville and wants to meet people while he's there — not just at the airport. He adds the city and his dates. almost™ shows him others who are in Nashville that same week, open to connecting. They plan a coffee. <strong>This is what the one small change unlocks — and it's the biggest use of the app.</strong></p>
+      </div>
+      <div class="case">
+        <div class="ch"><span class="cnum">3</span><span class="cname">The local, open right now</span><span class="cstatus">In Nashville now</span></div>
+        <p>She lives in Nashville and she's free tonight, open to meeting someone passing through. She sets her status to "here now." almost™ connects her with travelers in the city who are open too. A traveler gets a real local connection; she gets to meet interesting people moving through her city. <strong>This is the "here now" feature for later — and it turns locals into part of the crowd.</strong></p>
+      </div>
+    </div>
+
+    <div class="call">
+      <div class="cl">Why this matters</div>
+      <p>All three are the same simple promise — <strong>meet the people you're crossing paths with</strong> — just at different moments: passing through, staying a while, or living there and open. Notice that cases 2 and 3 are what make the app full enough to work. The airport alone is too narrow. The destination and the locals are where the crowd comes from.</p>
+    </div>
+  </div>
+</div>
+
+<div class="sec">
+  <div class="wrap">
+    <div class="snum"><span class="n">07</span><span class="k">The product decision ahead</span></div>
+    <h2>One small change. <em>A massive difference.</em></h2>
+    <p class="lead">There's one adjustment to the app that would unlock far more of what it's for. It's small to make and big in effect — and it's yours to decide with your developer. My job is to make it clear.</p>
+
+    <p class="body">Right now, almost™ only connects two people if they're at the <strong>same airport at the same time.</strong> That's a narrow window. Most trips won't line up that perfectly — which means most people won't find a match — which is a big reason the app feels empty.</p>
+
+    <p class="body">The fix is smaller than it sounds. The app already asks for a place and a date range. Today that place is <strong>the airport</strong>. The change is simply to let it be <strong>the destination</strong> — the city you're actually in — not just the airport you passed through. Same format, same screen. Just a wider "where."</p>
+
+    <div class="appex">
+      <div class="trip old">
+        <div class="tl">Today — airport only</div>
+        <div class="tv">BNA <span class="dot">·</span> 08/12 – 08/18</div>
+      </div>
+      <div class="arrow">becomes</div>
+      <div class="trip new">
+        <div class="tl">The change — the whole destination</div>
+        <div class="tv">Nashville (BNA) <span class="dot">·</span> 08/12 – 08/18</div>
+      </div>
+    </div>
+
+    <p class="body">That one move changes everything about how often the app works. Instead of only matching people whose flights cross at the gate, it matches everyone who's <strong>in Nashville that week</strong> — which is far more people, far more often. The overlap opens up from the airport into the city itself. It's the difference between a rare lucky moment and an app people can actually use on every trip. And it's exactly what your users are asking for:</p>
+
+    <div class="ladder">
+      <div class="rung"><span class="badge">·</span><div class="rb"><div class="rd">"Show me who's in this city this week — even if I'm not catching a flight."</div></div></div>
+      <div class="rung"><span class="badge">·</span><div class="rb"><div class="rd">"Can it work for trains and buses too, not just flights?" <span style="color:var(--grey);">(a natural follow-on, once the destination is the anchor)</span></div></div></div>
+      <div class="rung"><span class="badge">·</span><div class="rb"><div class="rd">"Let me post that I'm here right now and open to meeting." <span style="color:var(--grey);">(a smaller add for later)</span></div></div></div>
+    </div>
+
+    <div class="call">
+      <div class="cl">My recommendation</div>
+      <p>Make this one change — open overlaps up from the airport to the destination. It keeps everything almost™ already does (the airport moment still works), and it multiplies how often people actually find someone. It's the highest-value, lowest-effort move on the table. <strong>The exact size and timing is your call with your developer</strong> — and this whole plan is built to work either way, so nothing is blocked while you decide. One note for whenever a "here right now" feature comes: it should be <strong>something people choose to share, with a time stamp</strong> — never silent tracking. That protects almost™'s no-tracking promise.</p>
+    </div>
+  </div>
+</div>
+
+<div class="wrap"><div class="crossing">
+  <svg viewBox="0 0 120 34" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+    <path d="M2 4 L60 17 L118 4" stroke="#7f8a68" stroke-width="1.2"/>
+    <path d="M2 30 L60 17 L118 30" stroke="#b6beaa" stroke-width="1.2"/>
+    <circle cx="60" cy="17" r="3" fill="#7f8a68"/>
+  </svg>
+</div></div>
+
+<div class="sec">
+  <div class="wrap">
+    <div class="snum"><span class="n">08</span><span class="k">The move that matters most</span></div>
+    <h2>Build the crowd. <em>Density is the move.</em></h2>
+    <p class="lead">Everything so far points to one conclusion. almost™ doesn't need more scattered downloads. It needs a real crowd of the right people in one place — and building that is the single most important thing right now.</p>
+
+    <div class="decision">
+      <div class="dl">The conclusion</div>
+      <div class="dt">The make-or-break move for almost™ today is <strong>density-marketing</strong> — concentrating the right people in one place until real matches happen — <em>then</em> copying that recipe to the next place. Not more awareness. Not more scattered installs. A crowd, in one spot, first.</div>
+    </div>
+
+    <p class="body">This isn't a hunch. It's the exact path the biggest apps in this space took — <strong>Tinder on one campus, Hinge and Bumble in one city each.</strong> They won by going narrow and deep before wide. almost™ gets to use the same proven playbook.</p>
+
+    <p class="body">And here's the important insight about <em>how</em> density actually gets built, because it isn't obvious: <strong>you can't manufacture a crowd at the airport directly.</strong> You build it by concentrating a community in a place — through real, in-person connection — and that community then carries almost™ into the airports and cities they travel through. The community creates the overlap. Start with people in one place; the travel density follows.</p>
+
+    <p class="body">The natural place to start is <strong>Nashville</strong> — home base, where you're building your network — and your <strong>Founding Travelers video call on August 24</strong> is the perfect first moment to begin gathering that community.</p>
+
+    <div class="call">
+      <div class="cl">What comes next</div>
+      <p>Exactly how we concentrate the right crowd in Nashville — the community engine, the first event, the partnerships, and how we turn the first room into momentum — is the plan we build next. This milestone proves <strong>what</strong> the move is. The next one builds <strong>how</strong>.</p>
+    </div>
+  </div>
+</div>
+
+<div class="sec">
+  <div class="wrap">
+    <div class="snum"><span class="n">09</span><span class="k">What's next</span></div>
+    <h2>From decision to <em>action.</em></h2>
+    <p class="lead">Milestone 1 locks the big decisions. Here's what follows once you've signed off.</p>
+
+    <div class="steps">
+      <div class="step"><span class="sd"></span><span class="st"><strong>The message &amp; the market.</strong> Now that we know who it's for and what it owns, we update your website and marketing to match, and build the plan to concentrate the crowd in Nashville. Right now your site leads with the romantic angle and airports only — I'll show you exactly where to adjust, with options, so nothing changes without your yes.</span></div>
+      <div class="step"><span class="sd"></span><span class="st"><strong>A question for your developer.</strong> How big a change is it to let the trip location be the <em>destination city</em> (like Nashville), not just the airport? It should be small — same screen, wider "where" — and it's the single highest-value change for making the app actually work. The answer shapes how fast the crowd-building pays off.</span></div>
+      <div class="step"><span class="sd"></span><span class="st"><strong>Phase 2, parked and ready.</strong> Couples and families, extra transit types, and paid ads are all noted with clear "start when…" triggers — so nothing's forgotten and nothing's rushed.</span></div>
+      <div class="step"><span class="sd"></span><span class="st"><strong>For your funding conversations.</strong> Family and friends now; investors best a little later, once the position and message are locked. The story to tell either way: a first-of-its-kind app for a real gap, that no competitor can copy, with a concrete plan for the hard part.</span></div>
+    </div>
+
+    <div class="decision">
+      <div class="dl">The one line to remember</div>
+      <div class="dt">almost™ is for <strong>open travelers</strong>. It leads with the easy door — light professional connection — and keeps every other door open. And it wins by building a real crowd in <strong>one city at a time</strong>, starting with Nashville.</div>
+    </div>
+  </div>
+</div>
+
+<footer>
+  <div class="wrap">
+    <div class="fn">almost™ — Milestone 1: Foundation</div>
+    <div class="fc">Prepared by Que Blankenship · Marketing &amp; Growth Strategy</div>
+  </div>
+</footer>
+
+</body>
+</html>
