@@ -134,35 +134,6 @@
   .trip.new{border:2px solid var(--sage-deep);background:var(--peach);}
   .appex .arrow{align-self:center;font-family:'Cormorant Garamond',serif;font-style:italic;color:var(--sage-deep);font-size:15px;flex:0 0 auto;}
 
-  /* CATEGORY MAP */
-  .mapwrap{margin:26px 0 10px;}
-  .cmap{position:relative;width:100%;aspect-ratio:1/0.82;background:#fff;border:1px solid var(--tan);border-radius:14px;overflow:hidden;}
-  .cmap .axis{position:absolute;background:var(--tan);}
-  .cmap .axis.v{width:1.5px;top:7%;bottom:7%;left:50%;}
-  .cmap .axis.h{height:1.5px;left:6%;right:6%;top:50%;}
-  .cmap .axtitle{position:absolute;font-size:10.5px;letter-spacing:0.09em;text-transform:uppercase;color:var(--sage-deep);font-weight:600;}
-  .cmap .dot{position:absolute;transform:translate(-50%,-50%);text-align:center;width:150px;}
-  .cmap .dot .d{width:11px;height:11px;border-radius:50%;background:var(--grey);margin:0 auto 5px;}
-  .cmap .dot .l{font-size:11.5px;font-weight:500;color:var(--ink-soft);line-height:1.25;}
-  .cmap .dot.almost .d{width:20px;height:20px;background:var(--sage-deep);box-shadow:0 0 0 6px rgba(127,138,104,0.18);}
-  .cmap .dot.almost .l{font-family:'Cormorant Garamond',serif;font-style:italic;font-size:17px;font-weight:600;color:var(--charcoal);}
-  .cmap .zone{position:absolute;border-radius:12px;background:rgba(127,138,104,0.10);border:1px dashed var(--sage);}
-  .cmap .zone .zl{position:absolute;bottom:9px;right:11px;font-size:9.5px;letter-spacing:0.1em;text-transform:uppercase;color:var(--sage-deep);font-weight:700;}
-  .maplegend{font-size:14px;color:var(--sage-deep);text-align:center;margin-top:10px;font-style:italic;font-family:'Cormorant Garamond',serif;}
-  @media(max-width:720px){ .cmap .dot{width:96px;} .cmap .dot .l{font-size:9.5px;} .cmap .dot.almost .l{font-size:13px;} .cmap .axtitle{font-size:8px;} }
-
-  /* OPPORTUNITY STAT BAND */
-  .oband{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;margin:26px 0;}
-  .ostat{background:var(--charcoal);color:var(--lighttan);border-radius:12px;padding:24px 22px;}
-  .ostat .on{font-family:'Cormorant Garamond',serif;font-size:34px;font-weight:600;color:#fff;line-height:1;margin-bottom:8px;}
-  .ostat .od{font-size:13.5px;color:#cfccc1;line-height:1.45;}
-  .ostat.hl{background:var(--peach);}
-  .ostat.hl .on{color:var(--sage-deep);}
-  .ostat.hl .od{color:var(--charcoal);}
-  .src{font-size:12px;color:var(--grey);font-style:italic;margin:4px 0 0;}
-  @media(max-width:720px){ .oband{grid-template-columns:1fr;} }
-
-  /* STEPS */
   .steps{margin:20px 0;}
   .step{display:flex;gap:16px;padding:14px 0;border-bottom:1px solid var(--tan);}
   .step:last-child{border-bottom:none;}
@@ -244,50 +215,6 @@
     <div class="call">
       <div class="cl">Why this matters for your goal</div>
       <p>Your goal is 1,000 users, matches, and repeat users. Here's the trap: <strong>1,000 users spread across 200 airports is worse than 200 who all move through the same one.</strong> The scattered 1,000 never match — the app feels empty and people leave. The focused 200 match, come back, and give you real proof. So the smart order is: build a crowd in one place first, get matches and repeats happening, <em>then</em> grow the number. Same goal — the right way to reach it.</p>
-    </div>
-  </div>
-</div>
-
-<div class="wrap"><div class="crossing">
-  <svg viewBox="0 0 120 34" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
-    <path d="M2 4 L60 17 L118 4" stroke="#7f8a68" stroke-width="1.2"/>
-    <path d="M2 30 L60 17 L118 30" stroke="#b6beaa" stroke-width="1.2"/>
-    <circle cx="60" cy="17" r="3" fill="#7f8a68"/>
-  </svg>
-</div></div>
-
-<div class="sec">
-  <div class="wrap">
-    <div class="snum"><span class="n">·</span><span class="k">The opportunity</span></div>
-    <h2>A big market. A real pain. <em>No one owning it.</em></h2>
-    <p class="lead">Those small numbers above sit inside a very large and fast-growing market — and the specific problem almost™ solves is one people are actively naming. Here's the size of what almost™ is reaching for.</p>
-
-    <p class="body"><strong>First, the market is large and growing fast.</strong></p>
-    <div class="oband">
-      <div class="ostat"><div class="on">$550B</div><div class="od">Global solo travel market in 2025 — projected to reach ~$1.6 trillion by 2033.</div></div>
-      <div class="ostat"><div class="on">14.6%</div><div class="od">Annual growth rate — faster than the travel industry overall, four years running.</div></div>
-      <div class="ostat"><div class="on">+223%</div><div class="od">Growth in "solo travel" searches over the last decade — a 15-year high in 2026.</div></div>
-    </div>
-    <p class="src">Sources: Grandview Research; Fortune Business Insights; market.us (2025–2026).</p>
-
-    <p class="body"><strong>Second — and this is the important one — the exact problem almost™ solves is real and measured.</strong></p>
-    <div class="oband">
-      <div class="ostat hl"><div class="on">49%</div><div class="od">of solo travelers say they worry about <strong>getting lonely</strong> — one of the two biggest hesitations about traveling alone.</div></div>
-      <div class="ostat"><div class="on">39%</div><div class="od">of solo travelers are now <strong>40 or older</strong> — this is not just a young-backpacker crowd. almost™'s audience is wide.</div></div>
-      <div class="ostat"><div class="on">44%</div><div class="od">are aged <strong>25–40</strong> — professionals and remote workers, exactly the travelers almost™ leads with.</div></div>
-    </div>
-    <p class="src">Sources: passport-photo.online solo travel statistics; Wingman/Grandview (2026).</p>
-
-    <div class="call">
-      <div class="cl">Read that 49% again</div>
-      <p>Nearly half of solo travelers name <strong>loneliness</strong> as a real worry. That is almost™'s entire reason to exist, confirmed at the scale of the whole market — not a hunch, a measured pain. The "open traveler" who'd welcome a real connection isn't a niche. It's close to half of a $550-billion-and-growing market.</p>
-    </div>
-
-    <p class="body"><strong>Third, no one has captured it.</strong> As the competitor look (next) shows, the apps trying to connect travelers are all small, early, and boxed into narrow corners — one identity, one kind of connection, or friends only. There is a large, growing market with a clearly named pain and <strong>no product that has consolidated it.</strong> That combination — proven demand, real pain, no winner — is the gap almost™ is built to fill.</p>
-
-    <div class="decision">
-      <div class="dl">Where the gap is</div>
-      <div class="dt">The market is huge and growing. Half of it names the exact pain almost™ solves. And no app has won the job of connecting travelers whose paths cross. <strong>The opportunity isn't to enter a crowded space — it's to be the first to own an open one.</strong></div>
     </div>
   </div>
 </div>
@@ -492,76 +419,6 @@
     <div class="call">
       <div class="cl">Why this matters</div>
       <p>All three are the same simple promise — <strong>meet the people you're crossing paths with</strong> — just at different moments: passing through, staying a while, or living there and open. Notice that cases 2 and 3 are what make the app full enough to work. The airport alone is too narrow. The destination and the locals are where the crowd comes from.</p>
-    </div>
-  </div>
-</div>
-
-<div class="wrap"><div class="crossing">
-  <svg viewBox="0 0 120 34" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
-    <path d="M2 4 L60 17 L118 4" stroke="#7f8a68" stroke-width="1.2"/>
-    <path d="M2 30 L60 17 L118 30" stroke="#b6beaa" stroke-width="1.2"/>
-    <circle cx="60" cy="17" r="3" fill="#7f8a68"/>
-  </svg>
-</div></div>
-
-<div class="sec">
-  <div class="wrap">
-    <div class="snum"><span class="n">·</span><span class="k">Is there room in the market?</span></div>
-    <h2>Once it's about the destination — <em>who else is here?</em></h2>
-    <p class="lead">Fair question, and the right one to ask before changing the app. Opening up from the airport to the destination puts almost™ near a busier neighborhood — travel apps that help people meet. So I looked closely. Here's the honest answer: there are others in this space, and not one of them is doing what almost™ does.</p>
-
-    <p class="body"><strong>The honest part first.</strong> A few apps do connect travelers by trip. They're real, and they're worth looking at directly:</p>
-
-    <table class="ctable">
-      <tr><th>App</th><th>What it is</th><th>What it's missing that almost™ has</th></tr>
-      <tr><td class="name">ROAM BLK</td><td>A full travel platform for Black travelers — destination guides, safety ratings, an AI planner, and a "connect" feature that matches people by shared taste and dream destinations.</td><td>It matches by <strong>who you're like</strong>, not by whose trip crosses yours. It's a community-and-content platform, not an overlap app. And it's built around one identity by design.</td></tr>
-      <tr><td class="name">TripBFF</td><td>"Same place, same dates, new friends." The closest to almost™ — it does match travelers by overlapping trips.</td><td>It's <strong>friends-only</strong>, and backpacker-coded. One kind of connection, one vibe. No professional, no romantic, no broader appeal.</td></tr>
-      <tr><td class="name">Nomadtable</td><td>Meet other solo travelers; join a group chat for your destination and find activities.</td><td>It's a <strong>group chat and activity board</strong>, not a real one-to-one crossing — and again, friends-only, solo-traveler-only.</td></tr>
-      <tr><td class="name">Overlap</td><td>Alerts you when your <em>existing friends'</em> travel plans cross yours.</td><td>It only works with <strong>people you already know</strong>. It's not a way to meet anyone new.</td></tr>
-      <tr class="almost"><td class="name">almost™</td><td>See the specific people whose trips cross yours, and connect — for business, friendship, or something more.</td><td>Stands alone: real trip overlap, one-to-one, open to every kind of connection, for every traveler.</td></tr>
-    </table>
-
-    <div class="call warn">
-      <div class="cl">What this actually tells us</div>
-      <p>These apps existing isn't bad news — it's the <strong>best possible news.</strong> It proves people really do want to meet others whose trips line up with theirs (several teams built for it). And it proves <strong>no one has won it</strong> — the space is scattered into "find a travel BFF" apps and identity communities. Nobody owns the whole thing. Proven demand plus no clear winner is exactly the market you want to walk into.</p>
-    </div>
-
-    <p class="body"><strong>Now the confident part — here's the space, drawn out.</strong> Two things separate almost™ from all of them: <em>what sparks the connection</em> (are you matched because you're similar, or because your paths actually cross?), and <em>how many kinds of connection</em> it's for. Plot everyone on those two, and one corner is empty:</p>
-
-    <div class="mapwrap">
-      <div class="cmap">
-        <div class="axis v"></div>
-        <div class="axis h"></div>
-        <!-- axis titles -->
-        <div class="axtitle" style="top:2%;left:50%;transform:translateX(-50%);">Any kind of connection</div>
-        <div class="axtitle" style="bottom:2%;left:50%;transform:translateX(-50%);">One kind only</div>
-        <div class="axtitle" style="top:50%;left:1.5%;transform:translateY(-50%) rotate(-90deg);transform-origin:left center;">Matched by who you're like</div>
-        <div class="axtitle" style="top:50%;right:1.5%;transform:translateY(-50%) rotate(90deg);transform-origin:right center;">Matched because paths cross</div>
-
-        <!-- open zone highlight (top-right) -->
-        <div class="zone" style="top:11%;right:9%;width:34%;height:34%;"><span class="zl">Open lane</span></div>
-
-        <!-- competitor dots -->
-        <div class="dot" style="top:70%;left:24%;"><div class="d"></div><div class="l">ROAM BLK</div></div>
-        <div class="dot" style="top:78%;left:44%;"><div class="d"></div><div class="l">Happn · JetLatch</div></div>
-        <div class="dot" style="top:64%;left:74%;"><div class="d"></div><div class="l">TripBFF · Nomadtable</div></div>
-        <div class="dot" style="top:80%;left:63%;"><div class="d"></div><div class="l">Seatlr</div></div>
-        <div class="dot" style="top:47%;left:20%;"><div class="d"></div><div class="l">Overlap</div></div>
-
-        <!-- almost -->
-        <div class="dot almost" style="top:26%;left:76%;"><div class="d"></div><div class="l">almost™</div></div>
-      </div>
-      <div class="maplegend">The top-right corner — real trip overlap, open to any connection — belongs to almost™ alone.</div>
-    </div>
-
-    <div class="decision">
-      <div class="dl">The verdict</div>
-      <div class="dt">There <strong>is</strong> room. The others are boxed into corners — one identity, or one kind of connection, or people you already know. almost™ is the only one built on <strong>real trip overlap</strong>, for <strong>every kind of connection</strong>, for <strong>every traveler.</strong> The change opens the app up without giving up what makes it different.</div>
-    </div>
-
-    <div class="road">
-      <div class="rl">The one discipline this requires</div>
-      <p>There's a real line to hold. If almost™ ever becomes "browse a feed of travelers and mingle," it turns into one of these friend-finder apps and loses its edge. So the social energy of a community lives <strong>around</strong> the app — in events and gatherings that bring the right people in — while the app itself stays a sharp tool for one thing: <strong>the specific crossing worth acting on.</strong> Keep those separate, and almost™ stays one of a kind. (This is also why a public message board <em>inside</em> the app is worth pausing on — it's the one feature that would quietly turn almost™ into the generic version. There's a better way to get that social energy, and it's the next thing we build.)</p>
     </div>
   </div>
 </div>
