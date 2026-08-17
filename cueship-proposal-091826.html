@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="color-scheme" content="light only">
+<title>CueShip — Marketing & Growth Proposal</title>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,wght@0,400;0,500;0,600;1,400&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root{
+    /* warm, trustworthy, Jamaica-adjacent without being cliché: deep green, gold, warm cream, charcoal */
+    --green:#1f5140; --green-deep:#163b2f; --gold:#c99a3f; --gold-soft:#e6c980;
+    --cream:#f7f4ec; --sand:#efe9db; --charcoal:#22201c; --ink-soft:#45423b; --grey:#8a8578;
+    color-scheme:light only;
+  }
+  *{margin:0;padding:0;box-sizing:border-box;}
+  html,body{color-scheme:light only;}
+  body{background:var(--cream);color:var(--charcoal);font-family:'Inter',sans-serif;font-weight:300;line-height:1.65;}
+  .wrap{max-width:820px;margin:0 auto;padding:0 28px;}
+
+  /* HERO */
+  .hero{background:var(--green);color:#fff;padding:76px 0 64px;position:relative;}
+  .hero::after{content:"";position:absolute;bottom:0;left:0;right:0;height:4px;background:linear-gradient(90deg,var(--gold) 0%,var(--gold-soft) 100%);}
+  .eyebrow{font-size:12px;letter-spacing:0.3em;text-transform:uppercase;color:var(--gold-soft);margin-bottom:22px;}
+  .hero h1{font-family:'Fraunces',serif;font-weight:500;font-size:clamp(38px,5.5vw,56px);line-height:1.08;margin-bottom:20px;}
+  .hero h1 em{font-style:italic;color:var(--gold-soft);}
+  .hero .lede{font-size:18px;color:#dfe8e0;max-width:600px;}
+  .hero .for{margin-top:26px;font-size:14px;color:var(--gold-soft);letter-spacing:0.04em;}
+
+  section{padding:56px 0;border-bottom:1px solid var(--sand);}
+  .kicker{font-size:11px;letter-spacing:0.26em;text-transform:uppercase;color:var(--gold);font-weight:600;margin-bottom:14px;}
+  h2{font-family:'Fraunces',serif;font-weight:500;font-size:34px;line-height:1.14;margin-bottom:20px;color:var(--green-deep);}
+  h2 em{font-style:italic;color:var(--gold);}
+  p{font-size:16px;color:var(--ink-soft);margin-bottom:16px;}
+  p:last-child{margin-bottom:0;}
+  strong{font-weight:600;color:var(--charcoal);}
+  .insight{background:var(--sand);border-left:3px solid var(--gold);border-radius:8px;padding:24px 28px;margin-top:24px;font-size:16.5px;color:var(--charcoal);}
+
+  /* what we deliver list */
+  .deliver{display:flex;flex-direction:column;gap:14px;margin-top:8px;}
+  .drow{display:flex;gap:16px;align-items:flex-start;background:#fff;border:1px solid var(--sand);border-radius:10px;padding:20px 24px;}
+  .dnum{font-family:'Fraunces',serif;font-size:22px;font-weight:600;color:var(--gold);flex-shrink:0;line-height:1.2;}
+  .dbody .dtitle{font-size:16px;font-weight:600;color:var(--green-deep);margin-bottom:4px;}
+  .dbody .ddesc{font-size:14.5px;color:var(--ink-soft);}
+
+  /* phases */
+  .phase{background:#fff;border:1px solid var(--sand);border-radius:12px;padding:28px 30px;margin-bottom:16px;}
+  .phase.lead{border:2px solid var(--green);}
+  .phase-tag{font-size:11px;letter-spacing:0.18em;text-transform:uppercase;font-weight:600;color:var(--gold);margin-bottom:8px;}
+  .phase h3{font-family:'Fraunces',serif;font-size:24px;font-weight:600;color:var(--green-deep);margin-bottom:8px;}
+  .phase p{font-size:15px;margin-bottom:12px;}
+  .phase ul{list-style:none;margin:0;}
+  .phase li{font-size:14.5px;color:var(--ink-soft);padding:6px 0 6px 22px;position:relative;}
+  .phase li::before{content:"";position:absolute;left:0;top:13px;width:7px;height:7px;border-radius:50%;background:var(--gold);}
+
+  /* pricing */
+  .price-wrap{background:var(--green);color:#fff;border-radius:14px;padding:40px 36px;text-align:center;margin-top:12px;}
+  .price-wrap .plabel{font-size:12px;letter-spacing:0.2em;text-transform:uppercase;color:var(--gold-soft);margin-bottom:14px;}
+  .price-wrap .amount{font-family:'Fraunces',serif;font-size:60px;font-weight:600;line-height:1;margin-bottom:8px;}
+  .price-wrap .amount span{font-size:20px;color:var(--gold-soft);}
+  .price-wrap .sub{font-size:15px;color:#dfe8e0;margin-bottom:28px;max-width:520px;margin-left:auto;margin-right:auto;}
+  .btn{display:inline-block;background:var(--gold);color:var(--green-deep);padding:16px 44px;border-radius:8px;font-size:15px;font-weight:600;letter-spacing:0.03em;text-decoration:none;transition:opacity .2s;}
+  .btn:hover{opacity:.9;}
+  .split-note{margin-top:18px;font-size:13.5px;color:#c7d3c9;}
+
+  .terms{background:var(--sand);border-radius:12px;padding:24px 28px;margin-top:28px;}
+  .terms h4{font-size:12px;letter-spacing:0.16em;text-transform:uppercase;color:var(--gold);font-weight:600;margin-bottom:12px;}
+  .terms li{font-size:14.5px;color:var(--charcoal);padding:5px 0 5px 20px;position:relative;list-style:none;}
+  .terms li::before{content:"—";position:absolute;left:0;color:var(--gold);}
+
+  .close{background:var(--green-deep);color:#fff;padding:56px 0;text-align:center;border:none;}
+  .close h2{color:#fff;}
+  .close p{color:#dfe8e0;max-width:560px;margin:14px auto 0;}
+  .close .whisper{font-family:'Fraunces',serif;font-style:italic;font-size:20px;color:var(--gold-soft);margin-top:22px;}
+
+  footer{padding:40px 0;text-align:center;}
+  .foot-name{font-family:'Fraunces',serif;font-size:20px;color:var(--green-deep);margin-bottom:5px;}
+  .foot-contact{font-size:13px;color:var(--grey);}
+  .foot-contact a{color:var(--gold);text-decoration:none;}
+</style>
+</head>
+<body>
+
+<div class="hero">
+  <div class="wrap">
+    <div class="eyebrow">Marketing & Growth Proposal</div>
+    <h1>Rebuilding CueShip's <em>volume.</em></h1>
+    <p class="lede">A focused marketing strategy and a new website built to reach more shoppers, rebuild the volume the storm interrupted, and grow CueShip beyond word of mouth.</p>
+    <div class="for">Prepared for the CueShip team</div>
+  </div>
+</div>
+
+<section>
+  <div class="wrap">
+    <div class="kicker">Where Things Stand</div>
+    <h2>Your business works. The <em>market got interrupted.</em></h2>
+    <p>CueShip solves a real, everyday problem: Jamaicans want to shop from US stores like Shein, Amazon, and countless others, but shipping directly to the island is expensive, slow, or simply not offered. CueShip gives them a US address, receives their orders, and delivers them home affordably. That's a service people need constantly, and for three years it grew on the strongest marketing there is: word of mouth.</p>
+    <p>Then Hurricane Melissa changed things. It disrupted the island, daily life, and people's spending, and the steady flow of online orders slowed with it. Shipments that once ran daily now run a few times a week. The customers didn't leave because of anything you did. Their world was turned upside down, and shopping took a back seat to recovery.</p>
+    <div class="insight"><strong>Here's what that means, and why it's good news.</strong> The need didn't disappear. Jamaicans still want US products at prices that make sense, and as the island recovers, that demand comes back. The job now isn't to build a market from nothing. It's to reconnect with the shoppers who already rely on you, reach the many who haven't found you yet, and build a marketing engine so CueShip never has to depend on word of mouth alone again.</div>
+  </div>
+</section>
+
+<section>
+  <div class="wrap">
+    <div class="kicker">The Opportunity</div>
+    <h2>Win on price and trust, then <em>tap what's next.</em></h2>
+    <p>CueShip's advantage is real: you make US shopping affordable for Jamaicans who would otherwise pay astronomical direct-shipping costs or go without. That's a clear, everyday value the big carriers don't offer this community. The marketing job is to make sure every Jamaican who shops online knows CueShip exists and trusts it to deliver.</p>
+    <p>Most of your growth has come from people telling their friends. That's powerful, but it left the business exposed when the market slowed, because there was no marketing engine to fall back on. This engagement builds that engine, so CueShip is never again relying on word of mouth alone.</p>
+    <div class="insight"><strong>And there's an untapped market worth exploring.</strong> US-based Jamaicans, the diaspora, could use CueShip to send goods home, especially as the island recovers. That's a second audience most forwarders overlook. Part of the strategy is deciding whether and how to pursue it, so you strengthen the core business and can open a new one at the same time.</div>
+  </div>
+</section>
+
+<section>
+  <div class="wrap">
+    <div class="kicker">What This Engagement Includes</div>
+    <h2>Strategy first. Then a website built to <em>convert.</em></h2>
+    <p>This engagement has two connected parts. The strategy comes first and defines exactly what your new website and marketing need to do. Then the website gets built on that foundation, so it's designed to turn visitors into shipments, not just look nicer.</p>
+
+    <div class="deliver">
+      <div class="drow"><div class="dnum">1</div><div class="dbody">
+        <div class="dtitle">Audience & positioning</div>
+        <div class="ddesc">Who we're reaching first (Jamaican online shoppers who want affordable US delivery), how CueShip is positioned against UPS and other forwarders, and whether the diaspora market is worth pursuing as a second audience.</div>
+      </div></div>
+      <div class="drow"><div class="dnum">2</div><div class="dbody">
+        <div class="dtitle">Competitive analysis</div>
+        <div class="ddesc">A clear look at UPS and the other freight forwarders you compete with, and the distinct position CueShip can own in the market.</div>
+      </div></div>
+      <div class="drow"><div class="dnum">3</div><div class="dbody">
+        <div class="dtitle">Your marketing plan</div>
+        <div class="ddesc">The channels that actually reach your shoppers, and a clear recommendation on what to do first, so you stop guessing and start spending where it works.</div>
+      </div></div>
+      <div class="drow"><div class="dnum">4</div><div class="dbody">
+        <div class="dtitle">A new marketing website</div>
+        <div class="ddesc">A modern, trustworthy website built to tell your story and turn visitors into signups, connected to your existing account and shipping system so nothing about your operations changes.</div>
+      </div></div>
+      <div class="drow"><div class="dnum">5</div><div class="dbody">
+        <div class="dtitle">A clear next step</div>
+        <div class="ddesc">A recommendation for ongoing marketing support, so the engine keeps running and your volume keeps rebuilding after this engagement.</div>
+      </div></div>
+    </div>
+  </div>
+</section>
+
+<section>
+  <div class="wrap">
+    <div class="kicker">Investment</div>
+    <h2>One engagement, <em>everything above.</em></h2>
+
+    <div class="price-wrap">
+      <div class="plabel">Strategy + New Marketing Website</div>
+      <div class="amount">$3,750</div>
+      <div class="sub">Covers the full marketing strategy and the build of your new website. The strategy is completed first, then the website is built on it.</div>
+      <a href="https://buy.stripe.com/8x2fZigCQ80kgoH9Y7ebu04" class="btn" target="_blank">Pay in Full & Get Started</a>
+      <div class="split-note">Prefer to split into payments? Just let me know and I'll set that up (split payments include a small 3% processing fee).</div>
+    </div>
+
+    <div class="terms">
+      <h4>What to know</h4>
+      <ul>
+        <li>The $3,750 covers the strategy and a standard marketing website</li>
+        <li>The only reason scope would grow is if the strategy uncovers a need well beyond a marketing site. If that happens, I'll bring it to you as a separate recommendation with its own pricing first. No surprise charges, ever.</li>
+        <li>Your existing account and shipping system stays exactly as it is. The new website connects to it.</li>
+        <li>Website hosting and management is handled through my platform as part of your service</li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<div class="close">
+  <div class="wrap">
+    <h2>Let's rebuild what the storm interrupted</h2>
+    <p>Your customers still want what you offer: an affordable way to get the things they need. This is about making it easy for them to find you again, reaching the many who haven't yet, and making sure your business never has to rely on chance to grow.</p>
+    <div class="whisper">CueShip. Delivered.</div>
+  </div>
+</div>
+
+<footer>
+  <div class="wrap">
+    <div class="foot-name">Que Blankenship</div>
+    <div class="foot-contact">Marketing &amp; Growth Strategy · <a href="mailto:que@queathena.com">que@queathena.com</a></div>
+  </div>
+</footer>
+
+</body>
+</html>
